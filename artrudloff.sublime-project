@@ -1,0 +1,17 @@
+{
+    "folders":
+    [
+        {
+            "path": "/",
+            "name": "artrudloff",
+            "folder_exclude_patterns": [
+                "node_modules",
+                "_site"
+            ]
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 4
+    }
+}
