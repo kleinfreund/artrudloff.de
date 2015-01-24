@@ -1,0 +1,67 @@
+name: artrudloff
+title: artrudloff.de
+description: "Dies ist die Website von Anke &amp; Andreas Rudloff. Wir zeigen hier Druckgrafik, Malerei, Plakate und Zeichnungen. Holzreliefs und Entwürfe für Glocken"
+url: http://kleinfreund.de/artrudloff
+
+permalink: /:categories/:title
+relative_permalinks: false
+
+max_posts: 30
+
+gems:
+  - jekyll-sitemap
+
+kramdown:
+  auto_ids: false
+
+sass:
+  style: :compressed
+
+
+
+# Asset paths
+assets:
+  css: /css/
+  sass: /sass/
+  fonts: /fonts/
+  images: /img/
+  javascript: /js/
+
+loadCSS_js: true
+
+google_verify: g7ePbgg57zKX_rpEwbiuhsOvtB59lj3JxFKz3kaO-Pc
+
+# compress.html by Anatol Broder (http://jch.penibelst.de)
+compress_html:
+  clippings: all
+  comments: ["<!--", "-->"]
+  endings: all
+  ignore:
+    envs: [local]
+
+
+
+defaults:
+  -
+    values:
+      layout: "default"
+  -
+    scope:
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
+      path: "anke"
+    values:
+      artist: "anke"
+  -
+    scope:
+      path: "andreas"
+    values:
+      artist: "andreas"

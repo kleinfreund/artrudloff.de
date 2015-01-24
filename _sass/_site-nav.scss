@@ -1,0 +1,28 @@
+.site-nav {
+    @include font-size($small-font-size);
+    display: inline-block;
+    list-style: none;
+    margin-bottom: 0;
+    line-height: 1;
+
+    @include media-query(lap-and-up) {
+        margin-left: $base-spacing-unit*2;
+    }
+
+    > li {
+
+        &,
+        > a {
+            display: inline-block;
+        }
+
+        > a {
+            color: #fff;
+            padding: $base-spacing-unit/2;
+
+            @include attention() {
+                background-color: $base-ui-color;
+            }
+        }
+    }
+}

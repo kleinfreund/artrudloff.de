@@ -1,0 +1,17 @@
+<header class="site-head">
+
+    <a href="/" class="site-logo">
+        <img src="/img/logo-{{ site.data.artists[page.artist].slug }}.gif">
+    </a>
+
+    <ul class="site-nav">
+        <!--
+        {% for link in site.data.artists[page.artist].nav %}
+        --><li>
+            <a href="{{ link.url }}">{{ link.text }}</a>
+        </li><!--
+        {% endfor %}
+        -->
+    </ul>
+
+</header>

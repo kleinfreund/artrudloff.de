@@ -3,13 +3,10 @@
 	[
 		{
 			"folder_exclude_patterns":
-			[
-				"node_modules",
-				"_site"
-			],
+			[],
 			"follow_symlinks": true,
 			"name": "artrudloff",
-			"path": ""
+			"path": "/"
 		}
 	],
 	"settings":

@@ -1,0 +1,8 @@
+.page-content {
+    @include vertical-gap(top);
+}
+
+.post {
+    text-align: center;
+    @include vertical-gap(bottom);
+}
