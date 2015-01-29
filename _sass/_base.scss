@@ -44,13 +44,13 @@ figure,
     max-width: 680px;
     margin-right: auto;
     margin-left: auto;
-    padding-right: $half-spacing-unit;
-    padding-left: $half-spacing-unit;
+    // padding-right: $base-spacing-unit/2;
+    // padding-left: $base-spacing-unit/2;
 
-    @include media-query(lap-and-up) {
-        padding-right: $base-spacing-unit;
-        padding-left: $base-spacing-unit;
-    }
+    // @include media-query(lap-and-up) {
+    //     padding-right: $base-spacing-unit;
+    //     padding-left: $base-spacing-unit;
+    // }
 }
 
 

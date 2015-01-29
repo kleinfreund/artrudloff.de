@@ -1,5 +1,7 @@
 .page-content {
     @include vertical-gap(top);
+    padding-right: $base-spacing-unit/2;
+    padding-left: $base-spacing-unit/2;
 }
 
 .post {
