@@ -1,11 +1,59 @@
 ---
-title: "Website von Anke & Andreas Rudloff"
-layout: home
+layout: null
 ---
-<div style="margin-top: 15%; margin-top: 30vh; text-align: center;">
-    <a href="/anke/"><img src="/img/lettering-anke.png" alt="Zur Website von Anke Rudloff" style="border: 0;"></a>
+{% include _header.html %}
 
-    <img src="/img/bird.png" alt="Eisenvogel">
+<style>
+a > img {
+    border: 0;
+}
 
-    <a href="/andreas/"><img src="/img/lettering-andreas.png" alt="Zur Website von Andreas Rudloff" style="border: 0;"></a>
+.section-wrapper {
+    margin-top: 15%;
+    margin-top: 30vh;
+    text-align: center;
+}
+
+.section--anke > img,
+.section--andreas > img {
+    width: 30vw;
+}
+
+.section--seperator > img {
+    width: 10vw;
+}
+
+@media only screen and (max-width: 680px) {
+    .section-wrapper {
+        margin-top: 10vh;
+    }
+
+    .section--anke > img,
+    .section--andreas > img {
+        width: auto;
+    }
+
+    .section--seperator > img {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 30px;
+    }
+}
+</style>
+
+<div class="section-wrapper">
+    <a class="section--anke" href="/anke">
+        <img src="/img/lettering-anke.png" alt="Zur Website von Anke Rudloff">
+    </a>
+
+    <span class="section--seperator">
+        <img src="/img/bird.png" alt="Eisenvogel">
+    </span>
+
+    <a class="section--andreas" href="/andreas">
+        <img src="/img/lettering-andreas.png" alt="Zur Website von Andreas Rudloff">
+    </a>
 </div>
+
+{% include _footer.html %}
