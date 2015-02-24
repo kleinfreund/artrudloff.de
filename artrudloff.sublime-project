@@ -3,7 +3,9 @@
 	[
 		{
 			"folder_exclude_patterns":
-			[],
+			[
+				"_site"
+			],
 			"follow_symlinks": true,
 			"name": "artrudloff",
 			"path": "/"
