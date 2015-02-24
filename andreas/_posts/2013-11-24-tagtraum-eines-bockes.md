@@ -6,4 +6,4 @@ group: Holzschnitte
 ![Tagtraum eines Bockes](/img/holzschnitte/tagtraum-eines-bockes.jpg)
 
 Tagtraum eines Bockes<br>
-Holzschnitt, 70 x 50, 90€
+Holzschnitt, 70 x 50, 120€

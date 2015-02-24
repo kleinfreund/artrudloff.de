@@ -6,4 +6,4 @@ group: Holzschnitte
 ![Landfolk (Holzschnitt)](/img/holzschnitte/landfolk-holzschnitt.jpg)
 
 Landfolk (Holzschnitt)<br>
-Holzschnitt, 90 x 50, 90 €
+Holzschnitt, 90 x 50, 120 €
