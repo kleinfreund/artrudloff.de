@@ -6,4 +6,4 @@ group: Radierungen
 ![Unter Kastanien](/img/radierungen/unter-kastanien.jpg)
 
 Unter Kastanien<br>
-Radierung, 30 x 40, 90 €
+Radierung, 30 x 40, 160 €

@@ -6,4 +6,4 @@ group: Radierungen
 ![Eigentlich ganz lieb](/img/radierungen/eigentlich-ganz-lieb.jpg)
 
 Eigentlich ganz lieb<br>
-Radierung, 32 x 24, 90 €
+Radierung, 32 x 24, 120 €

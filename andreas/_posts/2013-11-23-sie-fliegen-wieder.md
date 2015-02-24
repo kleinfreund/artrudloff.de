@@ -6,4 +6,4 @@ group: Radierungen
 ![Sie fliegen wieder](/img/radierungen/sie-fliegen-wieder.jpg)
 
 Sie fliegen wieder<br>
-Radierung, 30 x 40, 90 €
+Radierung, 30 x 40, 120 €

@@ -6,4 +6,4 @@ group: Holzschnitte
 ![Spiel nur, ich kann warten](/img/holzschnitte/spiel-nur-ich-kann-warten.jpg)
 
 Spiel nur, ich kann warten<br>
-Holzschnitt, 70 x 50, 150 €
+Holzschnitt, 70 x 50, 160 €
