@@ -3,7 +3,7 @@ layout: default
 ---
 {% assign post_group = site.posts | where: "group", page.group %}
 
-{% for post in post_group | limit:site.max_posts %}
+{% for post in post_group limit:site.max_posts %}
     <article class="post">
         {{ post.content }}
     </article>
