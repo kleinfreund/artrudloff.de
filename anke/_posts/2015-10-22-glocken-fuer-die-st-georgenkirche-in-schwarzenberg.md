@@ -30,9 +30,9 @@ für die St. Georgenkirche in Schwarzenberg
 Zeichnung für die Ewigkeitsglocke<br>
 für die St. Georgenkirche in Schwarzenberg
 
-![Krone für die Ewigkeisglocke](/img/glocken/st-georgenkirche-schwarzenberg-07.jpg)
+![Krone für die Ewigkeitsglocke](/img/glocken/st-georgenkirche-schwarzenberg-07.jpg)
 
-Krone für die Ewigkeisglocke<br>
+Krone für die Ewigkeitsglocke<br>
 für die St. Georgenkirche in Schwarzenberg
 
 ![Friedensglocke](/img/glocken/st-georgenkirche-schwarzenberg-09.jpg)
