@@ -20,6 +20,11 @@ für die St. Georgenkirche in Schwarzenberg
 Krone für die Sakramentsglocke<br>
 für die St. Georgenkirche in Schwarzenberg
 
+![Vorbereitungen Sakramentsglocke](/img/glocken/st-georgenkirche-schwarzenberg-14.jpg)
+
+Vorbereitungen für die Sakramentsglocke<br>
+für die St. Georgenkirche in Schwarzenberg
+
 ![Ewigkeitsglocke](/img/glocken/st-georgenkirche-schwarzenberg-06.jpg)
 
 Ewigkeitsglocke<br>
@@ -33,6 +38,11 @@ für die St. Georgenkirche in Schwarzenberg
 ![Krone für die Ewigkeitsglocke](/img/glocken/st-georgenkirche-schwarzenberg-07.jpg)
 
 Krone für die Ewigkeitsglocke<br>
+für die St. Georgenkirche in Schwarzenberg
+
+![Vorbereitungen für die Ewigkeitsglocke](/img/glocken/st-georgenkirche-schwarzenberg-15.jpg)
+
+Vorbereitungen für die Ewigkeitsglocke<br>
 für die St. Georgenkirche in Schwarzenberg
 
 ![Friedensglocke](/img/glocken/st-georgenkirche-schwarzenberg-09.jpg)
