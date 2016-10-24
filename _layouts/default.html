@@ -1,14 +1,67 @@
 ---
 layout: compress
 ---
-{% include _header.html %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.title }}</title>
 
-{% include _site-head.html %}
+    {% if site.description %}
+        <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    {% endif %}
 
-<main class="page-content">
-    <div class="wrapper">
-        {{ content }}
-    </div>
-</main>
+    <!--| Jekyll site for Anke & Andreas Rudloff
+        |
+        | by Philipp Rudloff
+        | kleinfreund.de
+        |-->
 
-{% include _footer.html %}
+    {% if jekyll.environment == 'local' %}
+        <!--| Cut-down Jekyll build times during development by linking to an
+            | external stylesheet -->
+        <link rel="stylesheet" href="/css/artrudloff.css">
+    {% else %}
+        <!-- Inline complete stylesheet for one less blocking request -->
+        <style>
+            {% capture scss_include %}
+                {% include artrudloff.scss %}
+            {% endcapture %}
+
+            {{ scss_include | scssify }}
+        </style>
+    {% endif %}
+
+    {% if page.artist %}
+        <link rel="icon" href="/img/icon-{{ page.artist }}.png">
+    {% else %}
+        <link rel="icon" href="/img/icon.png">
+    {% endif %}
+</head>
+<body>
+    <header class="site-head">
+        <a href="/" class="site-logo">
+            <img src="/img/logo-{{ site.data.artists[page.artist].slug }}.gif">
+        </a>
+
+        <ul class="site-nav">
+            <!--
+            {% for link in site.data.artists[page.artist].nav %}
+            --><li>
+                <a href="{{ link.url }}">{{ link.text }}</a>
+            </li><!--
+            {% endfor %}
+            -->
+        </ul>
+    </header>
+
+
+
+    <main class="page-content">
+        <div class="wrapper">
+            {{ content }}
+        </div>
+    </main>
+</body>
+</html>
