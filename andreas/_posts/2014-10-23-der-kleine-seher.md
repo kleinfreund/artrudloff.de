@@ -6,4 +6,4 @@ group: Radierungen
 ![Der kleine Seher](/img/radierungen/der-kleine-seher.jpg)
 
 Der kleine Seher<br>
-Radierung, ca. 32 x 24, 120 €
+Radierung, ca. 32 x 24

@@ -6,4 +6,4 @@ group: Holzschnitte
 ![Zickennest](/img/holzschnitte/zickennest.jpg)
 
 Zickennest<br>
-Holzschnitt, 60 x 50, 120 €
+Holzschnitt, 60 x 50

@@ -6,4 +6,4 @@ group: Radierungen
 ![Schwarzes Wasser](/img/radierungen/schwarzes-wasser.jpg)
 
 Schwarzes Wasser<br>
-Lithografie, ca. 30 x 40, 90 €
+Lithografie, ca. 30 x 40

@@ -6,4 +6,4 @@ group: Radierungen
 ![Wiesenstück](/img/radierungen/wiesenstueck.jpg)
 
 Wiesenstück<br>
-Lithografie, ca. 30 x 40, 90 €
+Lithografie, ca. 30 x 40

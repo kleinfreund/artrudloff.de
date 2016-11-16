@@ -6,4 +6,4 @@ group: Radierungen
 ![Oktober im Vogtland](/img/radierungen/oktober-im-vogtland.jpg)
 
 Oktober im Vogtland<br>
-Aquatintaradierung, ca. 20 x 25, 80 €
+Aquatintaradierung, ca. 20 x 25

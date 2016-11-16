@@ -6,9 +6,9 @@ group: Radierungen
 ![Pech Merlu 2 (Druckgrafik)](/img/radierungen/pech-merlu-2-druckgrafik.jpg)
 
 Pech Merlu 2 <br>
-Radierung, 20 x 25, 80 €
+Radierung, 20 x 25
 
 ![Pech Merlu 1 (Druckgrafik)](/img/radierungen/pech-merlu-1-druckgrafik.jpg)
 
 Pech Merlu 1 <br>
-Radierung, 20 x 25, 80 €
+Radierung, 20 x 25

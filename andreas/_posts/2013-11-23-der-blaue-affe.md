@@ -6,4 +6,4 @@ group: Radierungen
 ![Der blaue Affe](/img/radierungen/der-blaue-affe.jpg)
 
 Der blaue Affe<br>
-Aquatintaradierung, 40 x 30, 120 €
+Aquatintaradierung, 40 x 30

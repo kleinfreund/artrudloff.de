@@ -6,4 +6,4 @@ group: Radierungen
 ![Provinzielle Allianz 2](/img/radierungen/provinzielle-allianz-2.jpg)
 
 Provinzielle Allianz 2<br>
-Radierung, ca. 32 x 24, 120 €
+Radierung, ca. 32 x 24

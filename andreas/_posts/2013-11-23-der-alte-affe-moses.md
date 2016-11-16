@@ -6,4 +6,4 @@ group: Radierungen
 ![Der alte Affe Moses](/img/radierungen/der-alte-affe-moses.jpg)
 
 Der alte Affe Moses<br>
-Aquatintaradierung, 30 x 40, 120 €
+Aquatintaradierung, 30 x 40

@@ -6,4 +6,4 @@ group: Radierungen
 ![Die Last mit der Lust](/img/radierungen/die-last-mit-der-lust.jpg)
 
 Die Last mit der Lust<br>
-Radierung, ca. 32 x 24, 120 €
+Radierung, ca. 32 x 24

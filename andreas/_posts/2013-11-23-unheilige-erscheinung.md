@@ -6,4 +6,4 @@ group: Radierungen
 ![Unheilige Erscheinung](/img/radierungen/unheilige-erscheinung.jpg)
 
 Unheilige Erscheinung<br>
-Radierung, 30 x 20, 80 €
+Radierung, 30 x 20

@@ -6,4 +6,4 @@ group: Holzschnitte
 ![Wer mit einem Scheißdreck rammelt](/img/holzschnitte/wer-mit-einem-scheissdreck-rammelt.jpg)
 
 Wer mit einem Scheißdreck rammelt<br>
-Holzschnitt, 60 x 90, 200 €
+Holzschnitt, 60 x 90

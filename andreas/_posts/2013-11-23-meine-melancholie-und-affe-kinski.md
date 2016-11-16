@@ -6,4 +6,4 @@ group: Radierungen
 ![Meine Melancholie und Affe Kinski](/img/radierungen/meine-melancholie-und-affe-kinski.jpg)
 
 Meine Melancholie und Affe Kinski<br>
-Radierung, ca. 32 x 24, 160 €
+Radierung, ca. 32 x 24

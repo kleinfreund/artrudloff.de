@@ -6,4 +6,4 @@ group: Holzschnitte
 ![Freuden einer Talfahrt](/img/holzschnitte/freuden-einer-talfahrt.jpg)
 
 Freuden einer Talfahrt<br>
-Holzschnitt, 70 x 50, 120 €
+Holzschnitt, 70 x 50

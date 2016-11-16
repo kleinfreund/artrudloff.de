@@ -6,4 +6,4 @@ group: Plakate
 ![Plakat Landschaften](/img/plakate/plakat-landschaften.jpg)
 
 Plakat Landschaften<br>
-Offsetdruck nach Radierung, 10 €
+Offsetdruck nach Radierung
