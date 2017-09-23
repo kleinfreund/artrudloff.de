@@ -1,9 +1,7 @@
-full_rebuild: true
-
 name: artrudloff
 title: artrudloff.de
 description: "Dies ist die Website von Anke &amp; Andreas Rudloff. Wir zeigen hier Druckgrafik, Malerei, Plakate und Zeichnungen. Holzreliefs und Entwürfe für Glocken"
-url: "http://artrudloff.de"
+url: "https://artrudloff.de"
 
 permalink: /:categories/:title
 relative_permalinks: false
@@ -40,8 +38,6 @@ compress_html:
   clippings: all
   comments: ["<!--", "-->"]
   endings: all
-  ignore:
-    envs: [local]
 
 
 
