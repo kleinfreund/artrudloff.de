@@ -31,8 +31,6 @@ assets:
   images: /img/
   javascript: /js/
 
-loadCSS_js: true
-
 # compress.html by Anatol Broder (http://jch.penibelst.de)
 compress_html:
   clippings: all
