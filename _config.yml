@@ -10,7 +10,7 @@ relative_permalinks: false
 
 max_posts: 30
 
-gems:
+plugins:
   - jekyll-sitemap
 
 exclude:
