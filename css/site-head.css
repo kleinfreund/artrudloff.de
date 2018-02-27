@@ -1,0 +1,8 @@
+.site-head {
+    color: #fff;
+    background-color: #121212;
+}
+
+.site-head > a {
+    color: currentColor;
+}

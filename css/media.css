@@ -2,18 +2,18 @@
  * Media
  */
 .media {
-    @extend %vertical-rhythm;
     display: block;
+    margin-bottom: 1.5rem;
 }
 
 .media__img {
     float: left;
-    margin-right: $base-spacing-unit;
+    margin-right: 1.5rem;
 }
 
 .media__img--rev {
     float: right;
-    margin-left: $base-spacing-unit;
+    margin-left: 1.5rem;
 }
 
 .media__img img,

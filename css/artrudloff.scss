@@ -1,18 +1,13 @@
 ---
-# Front Matter is needed to have Jekyll recognize this
 ---
 @charset "UTF-8";
 @import
-        "vars",
-        "defaults",
-        "mixins",
-        "normalize",
-        "base",
-        "typography",
-        "media",
-        "pagination",
-        "page-content",
-        "site-head",
-        "site-logo",
-        "site-nav"
+  "base.css",
+  "typography.css",
+  "media.css",
+  "pagination.css",
+  "page-content.css",
+  "site-head.css",
+  "site-logo.css",
+  "site-nav.css"
 ;

@@ -2,10 +2,12 @@
     display: table;
     margin-right: auto;
     margin-left: auto;
+}
 
-    @include media-query(lap-and-up) {
+@media only screen and (min-width: 600px) {
+    .site-logo {
         display: inline-block;
         margin-right: 0;
-        margin-left: $base-spacing-unit*2;
+        margin-left: 0.75rem;
     }
 }
