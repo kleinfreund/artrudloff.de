@@ -8,9 +8,6 @@ relative_permalinks: false
 
 max_posts: 30
 
-plugins:
-  - jekyll-sitemap
-
 exclude:
   - 'node_modules'
   - '*.sublime-workspace'
