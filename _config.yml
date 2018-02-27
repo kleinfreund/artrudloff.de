@@ -10,7 +10,6 @@ max_posts: 30
 
 exclude:
   - 'node_modules'
-  - '*.sublime-workspace'
 
 kramdown:
   auto_ids: false
