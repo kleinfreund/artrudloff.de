@@ -9,7 +9,7 @@ Markt 32<br>
 08626 Adorf<br>
 Telefon: 037423 2036
 
-<a href="mailto:a.rudloff@gmx.net">a.rudloff@gmx.net</a>
+E-Mail: <a href="mailto:andreasrudloff@fastmail.de">andreasrudloff@fastmail.de</a>
 
 ## Haftungsausschluss:
 
