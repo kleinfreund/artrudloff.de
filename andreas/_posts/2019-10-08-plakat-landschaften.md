@@ -1,6 +1,6 @@
 ---
 title: Plakat Landschaften
-date: 2013-11-21 18:58:13
+date: 2019-10-08 01:00:00
 group: Plakate
 ---
 ![Plakat Landschaften](/img/plakate/plakat-landschaften.jpg)

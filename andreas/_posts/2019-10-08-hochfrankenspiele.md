@@ -1,6 +1,6 @@
 ---
 title: Hochfrankenspiele
-date: 2013-11-21 19:07:12
+date: 2019-10-08 03:00:00
 group: Plakate
 ---
 ![Hochfrankenspiele 2012](/img/plakate/hochfrankenspiele-2012.jpg)
