@@ -26,16 +26,17 @@ Immer wieder Ziegen, Schafe und andere Typen. Provinz und Folklore. In meiner We
     </div>
 
     <div class="media__body">
-
         <strong>Arbeitsbereiche:</strong>
+
         <ul>
             <li>Zeichnungen</li>
             <li>Malerei</li>
             <li>Illustration</li>
-            <li>Grafikworkshops</li>
+            <li>Grafik-Workshops</li>
         </ul>
 
         <strong>Ausstellungen:</strong>
+
         <ul>
             <li>2003: Galerie im Gerstenboden, Hof</li>
             <li>2004: Galerie im Malzhaus, Plauen (zusammen mit <a href="/anke/">Anke Rudloff</a>)</li>
@@ -44,6 +45,5 @@ Immer wieder Ziegen, Schafe und andere Typen. Provinz und Folklore. In meiner We
             <li>2010: Projektraum Bund Bildender Künstler Vogtland, Plauen</li>
             <li>2002, 2008, 2010: 100 Sächsische Grafiken, Chemnitz</li>
         </ul>
-
     </div>
 </div>
