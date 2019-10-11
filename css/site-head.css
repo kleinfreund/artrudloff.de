@@ -1,8 +1,8 @@
 .site-head {
-    color: #fff;
-    background-color: #121212;
+  color: #fff;
+  background-color: #121212;
 }
 
 .site-head > a {
-    color: currentColor;
+  color: currentColor;
 }

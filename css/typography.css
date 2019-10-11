@@ -1,13 +1,13 @@
 html {
-    font: normal 1.25em/1.5 Georgia, "Times New Roman", Times, serif;
-    color: #32302b;
-    background-color: #fff;
-    overflow-y: scroll;
-    min-height: 100%;
+  font: normal 1.25em/1.5 Georgia, "Times New Roman", Times, serif;
+  color: #32302b;
+  background-color: #fff;
+  overflow-y: scroll;
+  min-height: 100%;
 }
 
 body {
-    margin: 0;
+  margin: 0;
 }
 
 
@@ -17,11 +17,11 @@ body {
  */
 li > ul,
 li > ol {
-        margin-bottom: 0;
+    margin-bottom: 0;
 }
 
 dt {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 
@@ -30,18 +30,18 @@ dt {
  * Quotations
  */
 blockquote {
-    border-left: 4px solid #e00000;
-    margin-left: -0.75rem;
-    padding-left: 0.75rem;
-    font-style: italic;
+  border-left: 4px solid #e00000;
+  margin-left: -0.75rem;
+  padding-left: 0.75rem;
+  font-style: italic;
 }
 
 blockquote > :last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .source {
-    font-style: normal;
+  font-style: normal;
 }
 
 
@@ -50,7 +50,7 @@ blockquote > :last-child {
  * Inline elements
  */
 q {
-    font-style: italic;
+  font-style: italic;
 }
 
 
@@ -59,14 +59,14 @@ q {
  * Links
  */
 a {
-    color: #e00000;
-    text-decoration: none;
+  color: #e00000;
+  text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-    color: #940000;
+  color: #940000;
 }
 
 
@@ -75,25 +75,25 @@ a:active {
  * Code
  */
 pre, code, kbd, samp {
-    font-family: Consolas, Courier New, Courier, monospace;
+  font-family: Consolas, Courier New, Courier, monospace;
 }
 
 code {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 pre {
-    overflow: auto;
-    white-space: pre;
-    word-wrap: normal;
-    color: #fff;
-    background-color: #444;
-    padding: 0.5rem 0.75rem;
-    border-radius: 3px;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+  color: #fff;
+  background-color: #444;
+  padding: 0.5rem 0.75rem;
+  border-radius: 3px;
 }
 
 pre > code {
-    font-size: 16px;
-    color: #fff;
-    white-space: pre;
+  font-size: 16px;
+  color: #fff;
+  white-space: pre;
 }

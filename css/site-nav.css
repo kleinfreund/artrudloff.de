@@ -1,29 +1,29 @@
 .site-nav {
-    font-size: 16px;
-    display: inline-block;
-    list-style: none;
-    margin-bottom: 0;
-    line-height: 1;
+  font-size: 16px;
+  display: inline-block;
+  list-style: none;
+  margin-bottom: 0;
+  line-height: 1;
 }
 
 @media only screen and (min-width: 600px) {
-    .site-nav {
-        margin-left: 3rem;
-    }
+  .site-nav {
+    margin-left: 3rem;
+  }
 }
 
 .site-nav > li,
 .site-nav > li > a {
-    display: inline-block;
+  display: inline-block;
 }
 
 .site-nav > li > a {
-    color: #fff;
-    padding: 0.75rem;
+  color: #fff;
+  padding: 0.75rem;
 }
 
 .site-nav > li > a:hover,
 .site-nav > li > a:focus,
 .site-nav > li > a:active {
-    background-color: #e00000;
+  background-color: #e00000;
 }
