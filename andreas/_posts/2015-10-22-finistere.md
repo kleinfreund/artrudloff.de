@@ -2,6 +2,7 @@
 title: Finistère
 date: 2015-10-22 20:05:00
 group: Malerei
+published: false
 ---
 ![Blick vom Pointe de Castelmeur](/img/malerei/finistere-01.jpg)
 
