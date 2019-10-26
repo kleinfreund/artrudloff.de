@@ -32,6 +32,8 @@ andreas:
     url: '/andreas/holzschnitte/'
   - text: 'Malerei'
     url: '/andreas/malerei/'
+  - text: 'Zeichnungen'
+    url: '/andreas/zeichnungen/'
   - text: 'Plakate'
     url: '/andreas/plakate/'
   - text: 'Vita'
