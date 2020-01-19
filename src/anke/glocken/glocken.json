@@ -1,0 +1,5 @@
+{
+  "tags": "glocken",
+  "layout": "_includes/layouts/page.liquid",
+  "permalink": "anke/glocken/{{ page.fileSlug }}/index.html"
+}

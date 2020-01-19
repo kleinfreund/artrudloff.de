@@ -1,0 +1,4 @@
+{
+  "layout": "_includes/layouts/page.liquid",
+  "permalink": "andreas/{{ page.fileSlug }}/index.html"
+}

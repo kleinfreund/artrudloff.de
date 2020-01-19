@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if title %}{{ title }}{% else %}{{ metadata.title }}{% endif %}</title>
+
+  <meta name="description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
+
+  <link rel="stylesheet" href="{{ '/css/artrudloff.css' | url }}">
+
+  {% if eleventy.environment == 'production' %}
+    <style>
+      {{ 'css/artrudloff.css' | resolve_css_imports | minify_css }}
+    </style>
+  {% else %}
+    <link rel="stylesheet" href="{{ '/css/artrudloff.css' | url }}">
+  {% endif %}
+</head>
+<body>
+
+  <header class="site-head">
+    <a href="/" class="site-logo">
+      <img src="/img/logo-{{ metadata[artist].slug }}.gif">
+    </a>
+
+    <ul class="site-nav">
+      {%- for link in metadata[artist].links -%}
+      <li>
+        <a href="{{ link.url }}">{{ link.text }}</a>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </header>
+
+  <main class="page-content">
+    <div class="wrapper">
+      {{ layoutContent }}
+    </div>
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+{
+  "tags": "zeichnungen-andreas",
+  "layout": "_includes/layouts/page.liquid",
+  "permalink": "andreas/zeichnungen/{{ page.fileSlug }}/index.html"
+}

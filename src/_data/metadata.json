@@ -1,0 +1,79 @@
+{
+  "title": "Website von Anke & Andreas Rudloff",
+  "url": "https://artrudloff.de",
+  "description": "Dies ist die Website von Anke &amp; Andreas Rudloff. Wir zeigen hier Druckgrafik, Malerei, Plakate und Zeichnungen. Holzreliefs und Entwürfe für Glocken",
+  "andreas": {
+    "slug": "andreas",
+    "links": [
+      {
+        "text": "Start",
+        "url": "/"
+      },
+      {
+        "text": "Radierungen",
+        "url": "/andreas/"
+      },
+      {
+        "text": "Holzschnitte",
+        "url": "/andreas/holzschnitte/"
+      },
+      {
+        "text": "Malerei",
+        "url": "/andreas/malerei/"
+      },
+      {
+        "text": "Zeichnungen",
+        "url": "/andreas/zeichnungen/"
+      },
+      {
+        "text": "Plakate",
+        "url": "/andreas/plakate/"
+      },
+      {
+        "text": "Vita",
+        "url": "/andreas/vita/"
+      },
+      {
+        "text": "Impressum",
+        "url": "/andreas/impressum/"
+      }
+    ]
+  },
+  "anke": {
+    "slug": "anke",
+    "links": [
+      {
+        "text": "Start",
+        "url": "/"
+      },
+      {
+        "text": "Glocken",
+        "url": "/anke/"
+      },
+      {
+        "text": "Holzreliefs",
+        "url": "/anke/holzreliefs/"
+      },
+      {
+        "text": "Holzobjekte",
+        "url": "/anke/holzobjekte/"
+      },
+      {
+        "text": "Wandbilder",
+        "url": "/anke/wandbilder/"
+      },
+      {
+        "text": "Zeichnungen",
+        "url": "/anke/zeichnungen/"
+      },
+      {
+        "text": "Vita",
+        "url": "/anke/vita/"
+      },
+      {
+        "text": "Impressum",
+        "url": "/anke/impressum/"
+      }
+    ]
+  }
+}

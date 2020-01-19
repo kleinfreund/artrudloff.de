@@ -1,0 +1,8 @@
+---
+layout: _includes/layouts/base.liquid
+---
+{%- for post in collections[collection_name] reversed -%}
+<article class="post">
+  {{ post.templateContent }}
+</article>
+{%- endfor -%}

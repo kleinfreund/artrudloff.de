@@ -1,0 +1,16 @@
+{
+  "name": "artrudloff.de",
+  "repository": "https://github.com/kleinfreund/artrudloff.de",
+  "version": "2.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "ELEVENTY_ENV=development eleventy --serve",
+    "build": "npm run clean && ELEVENTY_ENV=production eleventy",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.10.0",
+    "clean-css": "^4.2.1",
+    "html-minifier": "^4.0.0"
+  }
+}
