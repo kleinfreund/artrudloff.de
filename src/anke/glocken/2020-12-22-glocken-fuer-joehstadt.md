@@ -1,5 +1,5 @@
 ---
-title: "Glocken für die St.-Salvator-Kirche in Jöhstadt"
+title: Glocken für die St.-Salvator-Kirche in Jöhstadt
 date: 2020-12-22 10:40:00
 ---
 ![](/img/glocken/joehstadt/01-joehstadt.jpg)
@@ -25,3 +25,5 @@ date: 2020-12-22 10:40:00
 ![](/img/glocken/joehstadt/11-joehstadt.jpg)
 
 ![](/img/glocken/joehstadt/12-joehstadt.jpg)
+
+Glocken für die St.-Salvator-Kirche in Jöhstadt

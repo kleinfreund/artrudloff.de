@@ -1,5 +1,5 @@
 ---
-title: "Glocken für die St. Marien-Kirche in Marienberg"
+title: Glocken für die St. Marien-Kirche in Marienberg
 date: 2018-02-27 12:10:00
 ---
 ![](/img/glocken/marienberg/marienberg-01.jpg)
@@ -37,3 +37,5 @@ date: 2018-02-27 12:10:00
 ![](/img/glocken/marienberg/marienberg-17.jpg)
 
 ![](/img/glocken/marienberg/marienberg-18.jpg)
+
+Glocken für die St. Marien-Kirche in Marienberg

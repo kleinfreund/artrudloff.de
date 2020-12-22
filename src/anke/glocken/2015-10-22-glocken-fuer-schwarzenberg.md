@@ -1,5 +1,5 @@
 ---
-title: "Glocken für die St. Georgenkirche in Schwarzenberg"
+title: Glocken für die St. Georgenkirche in Schwarzenberg
 date: 2015-10-22 21:20:00
 ---
 ![Sakramentsglocke](/img/glocken/st-georgenkirche-schwarzenberg-02.jpg)
