@@ -15,66 +15,103 @@
       margin: 0;
     }
 
+    html,
+    body {
+      height: 100%;
+    }
+
     img {
       max-width: 100%;
       vertical-align: middle;
     }
 
-    a > img {
+    .artist-list {
+      margin: 1.5rem;
+      display: grid;
+      grid-gap: 1.5rem;
+    }
+
+    .artist-section {
+      display: inline-grid;
+      grid-gap: 1.5rem;
+    }
+
+    @media (max-width: 1199.98px) {
+      .artist-list {
+        grid-gap: 4.5rem;
+        align-content: center;
+        grid-template-rows: min-content min-content;
+      }
+
+      .artist-section {
+        justify-items: center;
+        grid-template-rows: min-content min-content;
+      }
+
+      .signature-image {
+        max-width: 350px;
+      }
+
+      .office-image {
+        max-height: 350px;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .artist-list {
+        height: 100%;
+        justify-content: center;
+        grid-template-columns: auto auto;
+      }
+
+      .artist-section {
+        align-items: center;
+        grid-template-columns: auto auto;
+      }
+
+      .office-image {
+        max-height: 500px;
+      }
+
+      .artist-section--inverted .office-image {
+        grid-row-start: 1;
+      }
+    }
+
+    .visually-hidden {
+      position: absolute;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
       border: 0;
-    }
-
-    a {
-      text-decoration: none;
-    }
-
-    .section-wrapper {
-      margin-top: 15%;
-      margin-top: 30vh;
-      text-align: center;
-    }
-
-    .section--anke > img,
-    .section--andreas > img {
-      width: 30vw;
-    }
-
-    .section--seperator > img {
-      width: 10vw;
-    }
-
-    @media only screen and (max-width: 680px) {
-      .section-wrapper {
-        margin-top: 10vh;
-      }
-
-      .section--anke > img,
-      .section--andreas > img {
-        width: auto;
-      }
-
-      .section--seperator > img {
-        display: block;
-        margin-right: auto;
-        margin-left: auto;
-        margin-bottom: 30px;
-      }
+      white-space: nowrap;
     }
   </style>
 </head>
 <body>
 
-  <div class="section-wrapper">
-    <a class="section--anke" href="/anke">
-      <img src="{{ '/img/lettering-anke.jpg' | url }}" alt="Zur Website von Anke Rudloff">
+  <div class="artist-list">
+    <a class="artist-section" href="/anke">
+      <span>
+        <span class="visually-hidden">Zur Website von Anke Rudloff</span>
+
+        <img class="signature-image" src="{{ '/img/lettering-anke.jpg' | url }}" alt="Der Name “Anke Rudloff” in schwarzer Handschrift">
+      </span>
+
+      <img class="office-image" src="{{ '/img/buero-anke.jpg' | url }}" alt="Der Schreibtisch von Anke Rudloff">
     </a>
 
-    <span class="section--seperator">
-      <img src="{{ '/img/bird.jpg' | url }}" alt="Eisenvogel">
-    </span>
+    <a class="artist-section artist-section--inverted" href="/andreas">
+      <span>
+        <span class="visually-hidden">Zur Website von Andreas Rudloff</span>
 
-    <a class="section--andreas" href="/andreas">
-      <img src="{{ '/img/lettering-andreas.jpg' | url }}" alt="Zur Website von Andreas Rudloff">
+        <img class="signature-image" src="{{ '/img/lettering-andreas.jpg' | url }}" alt="Der Name “Andreas Rudloff” in schwarzer Handschrift">
+      </span>
+
+      <img class="office-image" src="{{ '/img/buero-andreas.jpg' | url }}" alt="Eine Druckgrafikpresse in der Werkstatt von Andreas Rudloff">
     </a>
   </div>
 
