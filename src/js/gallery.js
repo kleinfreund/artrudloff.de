@@ -13,13 +13,17 @@ function initGallery() {
     const prevButton = gallery.querySelector('.gallery__prev-button')
     const nextButton = gallery.querySelector('.gallery__next-button')
 
-    prevButton.addEventListener('click', function () {
-      advanceGallery(scrollContainer, -1)
-    })
+    if (prevButton instanceof Element) {
+      prevButton.addEventListener('click', function () {
+        advanceGallery(scrollContainer, -1)
+      })
+    }
 
-    nextButton.addEventListener('click', function () {
-      advanceGallery(scrollContainer, 1)
-    })
+    if (nextButton instanceof Element) {
+      nextButton.addEventListener('click', function () {
+        advanceGallery(scrollContainer, 1)
+      })
+    }
   }
 }
 
