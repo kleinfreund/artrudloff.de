@@ -1,6 +1,6 @@
 ---
-title: Malerei
+title: Aquarelle
 layout: _includes/layouts/post-list.liquid
 artist: andreas
-collection_name: malerei
+collection_name: aquarelle
 ---

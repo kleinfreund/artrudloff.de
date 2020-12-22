@@ -1,5 +1,0 @@
-{
-  "tags": "malerei",
-  "layout": "_includes/layouts/page.liquid",
-  "permalink": "andreas/malerei/{{ page.fileSlug }}/index.html"
-}

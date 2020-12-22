@@ -23,7 +23,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig
     .addPassthroughCopy('src/img')
     .addPassthroughCopy('src/css')
-    // .addPassthroughCopy('src/js')
+    .addPassthroughCopy('src/js')
     .addPassthroughCopy('src/favicon.ico')
     .addPassthroughCopy('src/.htaccess');
 
@@ -34,6 +34,15 @@ module.exports = function (eleventyConfig) {
   // Compresses output HTML
   if (process.env.ELEVENTY_ENV === 'production') {
     eleventyConfig.addTransform('minify_html', minifyHtml);
+  }
+
+  if (process.env.ELEVENTY_ENV !== 'production') {
+    eleventyConfig.addFilter('dump', function (value) {
+      try {
+        console.log(JSON.stringify(value, null, 2))
+      } catch { }
+      return require('util').inspect(value);
+    });
   }
 
   return {

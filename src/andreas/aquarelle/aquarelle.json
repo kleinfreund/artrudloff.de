@@ -1,0 +1,5 @@
+{
+  "tags": "aquarelle",
+  "layout": "_includes/layouts/page.liquid",
+  "permalink": "andreas/aquarelle/{{ page.fileSlug }}/index.html"
+}

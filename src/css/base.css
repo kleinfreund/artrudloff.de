@@ -106,6 +106,7 @@ figure > img {
 }
 
 figcaption {
+  margin-top: 1.5rem;
   font-size: 16px;
 }
 
@@ -119,13 +120,4 @@ hr {
   border-bottom: 2px solid #aaa;
   margin-top: -1px;
   margin-bottom: 1.5rem;
-}
-
-
-
-/**
- * iframes
- */
-iframe {
-  vertical-align: middle;
 }

@@ -1,39 +1,29 @@
 ---
-title: Zeichnungen
+title: 'Zeichnungen'
 date: 2020-12-22 12:02:00
+images:
+  - alt: 'Märzbild'
+    src: /img/zeichnungen/maerzbild.jpg
+    caption: 'Märzbild'
+  - alt: 'Herbstwiese'
+    src: /img/zeichnungen/herbstwiese.jpg
+    caption: 'Herbstwiese'
+  - alt: 'Am alten Schloss'
+    src: /img/zeichnungen/am-alten-schloss.jpg
+    caption: 'Am alten Schloss'
+  - alt: 'Winterbild'
+    src: /img/zeichnungen/winterbild.jpg
+    caption: 'Winterbild'
+  - alt: 'Zwischenwelt'
+    src: /img/zeichnungen/zwischenwelt.jpg
+    caption: 'Zwischenwelt<br>Mischtechnik, 48 x 56'
+  - alt: 'Versteinert'
+    src: /img/zeichnungen/versteinert.jpg
+    caption: 'Versteinert<br>Mischtechnik, 41 x 61'
+  - alt: 'November'
+    src: /img/zeichnungen/november.jpg
+    caption: 'November<br>Mischtechnik, 48 x 61'
+  - alt: 'Herbstrot'
+    src: /img/zeichnungen/herbstrot.jpg
+    caption: 'Herbstrot<br>Mischtechnik, 48 x 61'
 ---
-![Märzbild](/img/zeichnungen/maerzbild.jpg)
-
-Märzbild
-
-![Herbstwiese](/img/zeichnungen/herbstwiese.jpg)
-
-Herbstwiese
-
-![Am alten Schloss](/img/zeichnungen/am-alten-schloss.jpg)
-
-Am alten Schloss
-
-![Winterbild](/img/zeichnungen/winterbild.jpg)
-
-Winterbild
-
-![Zwischenwelt](/img/zeichnungen/zwischenwelt.jpg)
-
-Zwischenwelt<br>
-Mischtechnik, 48 x 56
-
-![Versteinert](/img/zeichnungen/versteinert.jpg)
-
-Versteinert<br>
-Mischtechnik, 41 x 61
-
-![November](/img/zeichnungen/november.jpg)
-
-November<br>
-Mischtechnik, 48 x 61
-
-![Herbstrot](/img/zeichnungen/herbstrot.jpg)
-
-Herbstrot<br>
-Mischtechnik, 48 x 61

@@ -8,8 +8,6 @@
 
   <meta name="description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
 
-  <link rel="stylesheet" href="{{ '/css/artrudloff.css' | url }}">
-
   {% if eleventy.environment == 'production' %}
     <style>
       {{ 'css/artrudloff.css' | resolve_css_imports | minify_css }}
@@ -18,7 +16,7 @@
     <link rel="stylesheet" href="{{ '/css/artrudloff.css' | url }}">
   {% endif %}
 </head>
-<body>
+<body class="js-disabled">
 
   <header class="site-head">
     <a href="/" class="site-logo">
@@ -39,6 +37,18 @@
       {{ layoutContent }}
     </div>
   </main>
+
+  {% if eleventy.env == 'production' %}
+    <script defer>
+      {%- capture script_content -%}
+        {% include 'js/gallery.js' %}
+      {%- endcapture -%}
+
+      {{ script_content }}
+    </script>
+  {% else %}
+    <script src="{{ '/js/gallery.js' | url }}" defer></script>
+  {% endif %}
 
 </body>
 </html>
