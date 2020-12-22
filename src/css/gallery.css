@@ -58,8 +58,8 @@
   border-radius: 50%;
 }
 
-.gallery__prev-button:hover,
-.gallery__next-button:hover {
+.gallery__prev-button:enabled:hover,
+.gallery__next-button:enabled:hover {
   color: #fff;
   background-color: #000;
 }

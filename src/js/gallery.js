@@ -13,15 +13,21 @@ function initGallery() {
     const prevButton = gallery.querySelector('.gallery__prev-button')
     const nextButton = gallery.querySelector('.gallery__next-button')
 
-    if (prevButton instanceof Element) {
-      prevButton.addEventListener('click', function () {
-        advanceGallery(scrollContainer, -1)
-      })
-    }
+    if (prevButton instanceof HTMLButtonElement && nextButton instanceof HTMLButtonElement) {
+      prevButton.disabled = getGalleryItemIndex(scrollContainer) === 0
 
-    if (nextButton instanceof Element) {
+      prevButton.addEventListener('click', function () {
+        nextButton.disabled = false
+        const galleryItemIndex = getGalleryItemIndex(scrollContainer) - 1
+        scrollContainer.scrollLeft = galleryItemIndex * scrollContainer.clientWidth
+        prevButton.disabled = galleryItemIndex <= 0
+      })
+
       nextButton.addEventListener('click', function () {
-        advanceGallery(scrollContainer, 1)
+        prevButton.disabled = false
+        const galleryItemIndex = getGalleryItemIndex(scrollContainer) + 1
+        scrollContainer.scrollLeft = galleryItemIndex * scrollContainer.clientWidth
+        nextButton.disabled = galleryItemIndex >= scrollContainer.children.length - 1
       })
     }
   }
@@ -29,10 +35,7 @@ function initGallery() {
 
 /**
  * @param {Element} scrollContainer
- * @param {1 | -1} direction
  */
-function advanceGallery(scrollContainer, direction) {
-  const currentItemIndex = Math.round(scrollContainer.scrollLeft / scrollContainer.clientWidth)
-  const targetItemIndex = currentItemIndex + direction
-  scrollContainer.scrollLeft = targetItemIndex * scrollContainer.clientWidth
+function getGalleryItemIndex(scrollContainer) {
+  return Math.round(scrollContainer.scrollLeft / scrollContainer.clientWidth)
 }
