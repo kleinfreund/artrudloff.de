@@ -6,7 +6,9 @@
 .gallery__scroll-container {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  max-height: 680px;
   display: flex;
+  align-items: stretch;
 }
 
 .gallery__item {
@@ -19,6 +21,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.gallery__item img {
+  min-height: 0;
 }
 
 .gallery-icon {
