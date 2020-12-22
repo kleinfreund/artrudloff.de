@@ -1,6 +1,6 @@
 ---
 title: 'Bretagne: Finistère 2015'
-date: 2020-12-22 17:00:00
+date: 2020-12-22 16:00:00
 images:
   - alt: 'Finistère: Blick vom Pointe Castelmeur'
     src: /img/aquarelle/bretagne-finistere-2015-blick-vom-pointe-castelmeur-aquarell.jpg

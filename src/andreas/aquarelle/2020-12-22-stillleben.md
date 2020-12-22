@@ -1,6 +1,6 @@
 ---
 title: 'Stillleben'
-date: 2020-12-22 17:00:00
+date: 2020-12-22 13:00:00
 images:
   - alt: 'Granatäpfel'
     src: /img/aquarelle/granataepfel.jpg
