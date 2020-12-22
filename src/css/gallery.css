@@ -42,20 +42,21 @@
 
 .gallery__prev-button,
 .gallery__next-button {
-  pointer-events: all;
   margin: 0;
+  padding: 0;
   border: none;
+  border-radius: 50%;
+  color: inherit;
   background-color: transparent;
+  pointer-events: all;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   width: 64px;
   height: 64px;
   display: flex;
-  padding: 0;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
 }
 
 .gallery__prev-button:enabled:hover,
