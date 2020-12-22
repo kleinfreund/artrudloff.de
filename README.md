@@ -15,3 +15,9 @@ convert *.tiff -set filename: "%t" %[filename:].jpg
 ```sh
 mogrify -resize 1000x1500 *.jpg
 ```
+
+**Compress image**:
+
+```sh
+convert -strip -interlace Plane -quality 75% source.jpg result.jpg
+```
