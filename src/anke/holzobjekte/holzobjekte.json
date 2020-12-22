@@ -1,5 +1,0 @@
-{
-  "tags": "holzobjekte",
-  "layout": "_includes/layouts/page.liquid",
-  "permalink": "anke/holzobjekte/{{ page.fileSlug }}/index.html"
-}
