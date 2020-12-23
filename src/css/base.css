@@ -1,73 +1,60 @@
-/**
- * IE6 was right!
- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
 main {
   display: block;
+  margin-top: 6rem;
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
 }
 
-
-
-/**
- * Reset some basic elements
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd, ol, ul, hr,
-figure {
-  margin: 0;
-  padding: 0;
+:focus {
+  outline: 2px solid var(--focus-color);
 }
 
+a {
+  color: currentColor;
+}
 
+a:hover,
+a:active {
+  color: var(--accent-color-dark);
+}
 
-/**
- * Set `margin-bottom` to maintain vertycal rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl,
-figure,
-.island {
+h1, h2, h3, h4, h5, h6, p, blockquote, ul, figure {
+  margin-top: 0;
   margin-bottom: 1.5rem;
 }
 
-
-
-/**
- * Wrapper
- */
-.wrapper {
-  max-width: 680px;
-  margin-right: auto;
-  margin-left: auto;
+ul {
+  padding-left: 0;
 }
 
-
-
-/**
- * Hide/Show stuff
- */
-.hidden {
-  display: none;
+li > ul {
+  margin-bottom: 0;
 }
 
-.visible {
-  display: block;
-}
-
-
-
-/**
- * Images
- */
 img {
-  /* Emphasis on `alt` text */
   font-style: italic;
   max-width: 100%;
   height: auto;
@@ -77,30 +64,6 @@ img, svg {
   vertical-align: middle;
 }
 
-.img--right {
-  float: right;
-  margin-bottom: 1.5rem;
-  margin-left: 1.5rem;
-}
-
-.img--left {
-  float: left;
-  margin-right: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.img--center {
-  display: block;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  margin-left: auto;
-}
-
-
-
-/**
- * Figures
- */
 figure > img {
   display: block;
 }
@@ -110,14 +73,13 @@ figcaption {
   font-size: 16px;
 }
 
+blockquote {
+  border-left: 4px solid var(--accent-color);
+  margin-left: -0.75rem;
+  padding-left: 0.75rem;
+  font-style: italic;
+}
 
-
-/**
- * Rulers
- */
-hr {
-  border: 0;
-  border-bottom: 2px solid #aaa;
-  margin-top: -1px;
-  margin-bottom: 1.5rem;
+blockquote > :last-child {
+  margin-bottom: 0;
 }

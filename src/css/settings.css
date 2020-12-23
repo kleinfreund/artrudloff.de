@@ -1,0 +1,14 @@
+:root {
+  --font-size: 1.25em;
+  --line-height: 1.5;
+  --font-family: Georgia, "Times New Roman", Times, serif;
+
+  --text-color: #32302b;
+  --background-color: #fff;
+  --text-color-disabled: #666;
+  --accent-color: #e00000;
+  --accent-color-dark: #940000;
+  --focus-color: var(--accent-color);
+  --nav-text-color: #fff;
+  --nav-background-color: #121212;
+}

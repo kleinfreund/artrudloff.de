@@ -8,12 +8,12 @@ layout: _includes/layouts/base.liquid
       <h2>{{ post.data.title }}</h2>
 
       <div class="gallery">
-        <div class="gallery__scroll-container" role="region" aria-label="Galerie" tabindex="0">
+        <div class="gallery-scroll-container" role="region" aria-label="Galerie" tabindex="0">
           {%- for image in post.data.images -%}
-            <figure class="gallery__item">
-              <img src="{{ image.src }}" alt="{{ image.alt }}">
+            <figure class="gallery-scroll-container__item gallery-item">
+              <img class="gallery-item__image" src="{{ image.src }}" alt="{{ image.alt }}">
 
-              <figcaption class="">
+              <figcaption>
                 {% if image.caption %}
                   {{ image.caption }}
                 {% else %}
@@ -25,19 +25,19 @@ layout: _includes/layouts/base.liquid
         </div>
 
         {% if post.data.images.length > 1 %}
-          <div class="gallery__controls">
-            <button class="gallery__prev-button" type="button">
+          <div class="gallery-controls">
+            <button class="gallery-controls__button gallery-controls__prev-button" type="button">
               <span class="visually-hidden">Vorheriges</span>
 
-              <svg class="gallery-icon" width="10" height="17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg class="gallery-controls__icon" width="10" height="17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M.655 7.513l7.04-7.12a.862.862 0 011.23 0l.82.83c.34.343.34.899.002 1.242l-5.58 5.67 5.58 5.67c.338.344.337.9-.002 1.242l-.82.83a.862.862 0 01-1.23 0l-7.04-7.12a.886.886 0 010-1.244z" fill="currentColor"/>
               </svg>
             </button>
 
-            <button class="gallery__next-button" type="button">
+            <button class="gallery-controls__button gallery-controls__next-button" type="button">
               <span class="visually-hidden">Nächstes</span>
 
-              <svg class="gallery-icon" width="10" height="17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <svg class="gallery-controls__icon" width="10" height="17" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                 <path d="M9.345 8.757l-7.04 7.12a.862.862 0 01-1.23 0l-.82-.83a.886.886 0 01-.002-1.242l5.58-5.67-5.58-5.67a.886.886 0 01.002-1.242l.82-.83a.862.862 0 011.23 0l7.04 7.12c.34.344.34.9 0 1.244z" fill="currentColor"/>
               </svg>
             </button>

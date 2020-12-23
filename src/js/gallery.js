@@ -9,9 +9,9 @@ function initGallery() {
   const galleries = document.querySelectorAll('.gallery')
 
   for (const gallery of galleries) {
-    const scrollContainer = gallery.querySelector('.gallery__scroll-container')
-    const prevButton = gallery.querySelector('.gallery__prev-button')
-    const nextButton = gallery.querySelector('.gallery__next-button')
+    const scrollContainer = gallery.querySelector('.gallery-scroll-container')
+    const prevButton = gallery.querySelector('.gallery-controls__prev-button')
+    const nextButton = gallery.querySelector('.gallery-controls__next-button')
 
     if (scrollContainer instanceof HTMLElement && prevButton instanceof HTMLButtonElement && nextButton instanceof HTMLButtonElement) {
       prevButton.disabled = getGalleryItemIndex(scrollContainer) === 0

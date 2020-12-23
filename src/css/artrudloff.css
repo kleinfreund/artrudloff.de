@@ -1,10 +1,9 @@
+@import '/css/settings.css';
 @import '/css/base.css';
-@import '/css/typography.css';
-@import '/css/media.css';
-@import '/css/pagination.css';
-@import '/css/page-content.css';
-@import '/css/gallery.css';
-@import '/css/site-head.css';
-@import '/css/site-logo.css';
-@import '/css/site-nav.css';
-@import '/css/visually-hidden.css';
+
+@import '/css/components.post.css';
+@import '/css/components.gallery.css';
+@import '/css/components.site-navigation.css';
+
+@import '/css/objects.wrapper.css';
+@import '/css/utilities.visually-hidden.css';
