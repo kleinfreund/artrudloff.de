@@ -8,7 +8,7 @@
 
   <meta name="description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
 
-  {% if eleventy.environment == 'production' %}
+  {% if eleventy.isProduction %}
     <style>
       {{ 'css/artrudloff.css' | resolve_css_imports | minify_css }}
     </style>
@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{ '/css/artrudloff.css' | url }}">
   {% endif %}
 </head>
+
 <body class="js-disabled">
 
   <header class="site-head">
@@ -38,13 +39,13 @@
     </div>
   </main>
 
-  {% if eleventy.env == 'production' %}
+  {% if eleventy.isProduction %}
     <script defer>
       {%- capture script_content -%}
         {% include 'js/gallery.js' %}
       {%- endcapture -%}
 
-      {{ script_content }}
+      {{ script_content | minify_js }}
     </script>
   {% else %}
     <script src="{{ '/js/gallery.js' | url }}" defer></script>

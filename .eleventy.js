@@ -3,6 +3,7 @@ const fs = require('fs');
 
 const CleanCSS = require('clean-css');
 const htmlMinifier = require('html-minifier');
+const makeSynchronous = require('make-synchronous');
 
 // https://github.com/kangax/html-minifier#options-quick-reference
 const htmlMinifierOptions = {
@@ -27,20 +28,23 @@ module.exports = function (eleventyConfig) {
     .addPassthroughCopy('src/favicon.ico')
     .addPassthroughCopy('src/.htaccess');
 
-  // Filter for compressing CSS
+  // Filter for compressing CSS/JS
   eleventyConfig.addFilter('resolve_css_imports', resolveCssImports);
   eleventyConfig.addFilter('minify_css', minifyCss);
+  eleventyConfig.addFilter('minify_js', minifyJs);
 
   // Compresses output HTML
-  if (process.env.ELEVENTY_ENV === 'production') {
+  if (process.env.NODE_ENV === 'production') {
     eleventyConfig.addTransform('minify_html', minifyHtml);
   }
 
-  if (process.env.ELEVENTY_ENV !== 'production') {
-    eleventyConfig.addFilter('dump', function (value) {
+  if (process.env.NODE_ENV !== 'production') {
+    // Log and print template data
+    eleventyConfig.addFilter('log', function (value) {
       try {
         console.log(JSON.stringify(value, null, 2))
       } catch { }
+
       return require('util').inspect(value);
     });
   }
@@ -108,4 +112,19 @@ function minifyHtml(content, outputPath) {
   }
 
   return content;
+}
+
+async function minifyJsAsync(content) {
+  try {
+    const { minify } = require('terser');
+    const result = await minify(content)
+    return result.code
+  } catch (error) {
+    console.error('❌', error)
+  }
+}
+
+function minifyJs(content) {
+  // Eleventy currently doesn’t support asynchronous universal filters.
+  return makeSynchronous(minifyJsAsync)(content)
 }

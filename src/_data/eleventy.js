@@ -1,3 +1,3 @@
 module.exports = {
-  'environment': process.env.ELEVENTY_ENV
+  isProduction: process.env.NODE_ENV === 'production',
 };

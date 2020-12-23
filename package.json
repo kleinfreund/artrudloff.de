@@ -4,13 +4,17 @@
   "version": "2.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "ELEVENTY_ENV=development eleventy --serve",
-    "build": "npm run clean && ELEVENTY_ENV=production eleventy",
-    "clean": "rm -rf _site"
+    "prebuild": "rimraf _site",
+    "build": "NODE_ENV=production eleventy",
+    "prestart": "rimraf _site",
+    "start": "NODE_ENV=development eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.11.1",
     "clean-css": "^4.2.3",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "make-synchronous": "^0.1.1",
+    "rimraf": "^3.0.2",
+    "terser": "^5.5.1"
   }
 }
