@@ -8,11 +8,8 @@ html, body {
   height: 100%;
 }
 
-html {
-  overflow-y: scroll;
-}
-
 body {
+  overflow-y: scroll;
   margin: 0;
   font-size: var(--font-size);
   line-height: var(--line-height);
@@ -23,7 +20,10 @@ body {
 
 main {
   display: block;
+  max-width: 800px;
   margin-top: 6rem;
+  margin-right: auto;
+  margin-left: auto;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
