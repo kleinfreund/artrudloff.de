@@ -2,16 +2,16 @@
 title: Impressum
 artist: anke
 ---
-## Für den Inhalt verantwortlich:
+## Für den Inhalt verantwortlich
 
 Anke Rudloff<br>
 Markt 32<br>
 08626 Adorf<br>
 Telefon: 037423 2036
 
-<a href="mailto:a.rudloff@gmx.net">a.rudloff@gmx.net</a>
+<a href="mailto:ank.rudloff@gmail.com">ank.rudloff@gmail.com</a>
 
-## Haftungsausschluss:
+## Haftungsausschluss
 
 Für die Richtigkeit sämtlicher Inhalte übernehmen wir keine Garantie. Den Informationen liegen Quellen zugrunde, die wir für vertrauenswürdig halten. Eine Haftung oder Garantie für die Aktualität, Richtigkeit und Vollständigkeit der zur Verfügung gestellten Informationen kann aber nicht übernommen werden.
 

@@ -21,15 +21,13 @@ body {
 main {
   display: block;
   max-width: 800px;
-  margin-top: 6rem;
-  margin-right: auto;
-  margin-left: auto;
+  margin: 9rem auto;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
 }
 
 :focus {
-  outline: 2px solid var(--focus-color);
+  outline: 2px solid var(--accent-color);
 }
 
 a {
@@ -82,4 +80,18 @@ blockquote {
 
 blockquote > :last-child {
   margin-bottom: 0;
+}
+
+button {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  font: inherit;
+}
+
+button:disabled {
+  color: var(--text-color-disabled);
 }

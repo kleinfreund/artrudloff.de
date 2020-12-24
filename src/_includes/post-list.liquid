@@ -1,7 +1,7 @@
 ---
-layout: _includes/layouts/base.liquid
+layout: _includes/base.liquid
 ---
-{%- for post in collections[collection_name] reversed -%}
+{% for post in collections[collection_name] reversed %}
   <article class="post">
     {% if post.data.images %}
 
@@ -30,7 +30,7 @@ layout: _includes/layouts/base.liquid
           aria-label="Galerie"
           tabindex="0"
         >
-          {%- for image in post.data.images -%}
+          {% for image in post.data.images %}
             <div class="gallery-scroll-container__item">
               <button class="gallery-toggle-overlay-button" type="button">
                 <figure class="gallery-item">
@@ -52,7 +52,7 @@ layout: _includes/layouts/base.liquid
                 </figure>
               </button>
             </div>
-          {%- endfor -%}
+          {% endfor %}
         </div>
 
         {% if post.data.images.length > 1 %}
@@ -94,4 +94,4 @@ layout: _includes/layouts/base.liquid
 
     {% endif %}
   </article>
-{%- endfor -%}
+{% endfor %}

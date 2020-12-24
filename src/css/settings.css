@@ -3,12 +3,12 @@
   --line-height: 1.5;
   --font-family: Georgia, "Times New Roman", Times, serif;
 
-  --text-color: #32302b;
+  --text-color: hsl(0, 0%, 18%);
   --background-color: #fff;
-  --text-color-disabled: #666;
-  --accent-color: #e00000;
-  --accent-color-dark: #940000;
-  --focus-color: var(--accent-color);
+  --text-color-disabled: hsl(0, 0%, 40%);
+  --accent-color: hsl(0, 100%, 44%);
+  --accent-color-dark: hsl(0, 100%, 29%);
+
   --nav-text-color: #fff;
-  --nav-background-color: #121212;
+  --nav-background-color: hsl(0, 0%, 7%);
 }

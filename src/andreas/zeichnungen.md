@@ -1,6 +1,6 @@
 ---
 title: Zeichnungen
-layout: _includes/layouts/post-list.liquid
+layout: _includes/post-list.liquid
 artist: andreas
 collection_name: zeichnungen-andreas
 ---

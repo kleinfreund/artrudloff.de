@@ -1,5 +1,5 @@
 {
   "tags": "radierungen",
-  "layout": "_includes/layouts/page.liquid",
+  "layout": "_includes/base.liquid",
   "permalink": "andreas/radierungen/{{ page.fileSlug }}/index.html"
 }

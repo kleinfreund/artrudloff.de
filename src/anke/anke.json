@@ -1,4 +1,4 @@
 {
-  "layout": "_includes/layouts/page.liquid",
+  "layout": "_includes/base.liquid",
   "permalink": "anke/{{ page.fileSlug }}/index.html"
 }

@@ -48,9 +48,11 @@
 .site-nav__item {
   padding: 0.75rem;
 }
+.site-nav__item:focus {
+  outline-offset: -2px;
+}
 
 .site-nav__item:hover,
-.site-nav__item:focus,
 .site-nav__item:active {
   background-color: var(--accent-color);
 }

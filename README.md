@@ -1,6 +1,6 @@
 # artrudloff
 
-This is the repository for the portfolio site of the German artists Anke and Andreas Rudloff. Hosted on [Uberspace](https://uberspace.de) and built with [Eleventy](https://11ty.dev).
+This is the repository for the portfolio site of the artists Anke and Andreas Rudloff. Hosted on [Uberspace](https://uberspace.de) and built with [Eleventy](https://11ty.dev).
 
 ## Image processing
 

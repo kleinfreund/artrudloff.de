@@ -2,23 +2,17 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
   width: 64px;
   height: 64px;
-  border: 2px solid transparent;
+  border: 2px dashed transparent;
   border-radius: 50%;
   color: #fff;
   background-color: #000;
 }
 
-.button:disabled {
-  color: var(--text-color-disabled);
-}
-
 .button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--focus-color);
+  border-color: var(--accent-color);
 }
 
 .button:enabled:hover {

@@ -11,7 +11,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
   justify-content: center;
   align-items: stretch;
   color: #fff;
@@ -22,6 +21,12 @@
   .gallery--is-overlay {
     display: grid;
     grid-template-rows: 1fr min-content;
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery--is-overlay {
+    display: flex;
   }
 }
 
@@ -38,6 +43,7 @@
 .gallery-scroll-container {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  width: 100%;
   display: flex;
   align-items: stretch;
 }
@@ -61,13 +67,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  appearance: none;
-  margin: 0;
-  padding: 0;
-  border: none;
-  color: inherit;
-  background-color: transparent;
-  font: inherit;
 }
 
 .gallery-toggle-overlay-button:focus {
@@ -121,34 +120,6 @@ body.js-disabled .gallery-controls {
   }
 }
 
-.gallery-controls__button {
-  color: inherit;
-  background-color: transparent;
-}
-
-.gallery-controls__button:disabled {
-  color: var(--text-color-disabled);
-}
-
-.gallery-controls__button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px var(--focus-color);
-}
-
-.gallery:not(.gallery--is-overlay) .gallery-controls__button:enabled:hover {
-  color: #fff;
-  background-color: #000;
-}
-
-.gallery--is-overlay .gallery-controls__button:enabled:hover {
-  color: #000;
-  background-color: #fff;
-}
-
-.gallery-controls__icon {
-  flex-shrink: 0;
-}
-
 @media (min-width: 1000px) {
   .gallery-controls {
     pointer-events: none;
@@ -158,7 +129,19 @@ body.js-disabled .gallery-controls {
     bottom: 0;
     left: 0;
   }
+}
 
+.gallery-controls__button {
+  color: inherit;
+  background-color: transparent;
+}
+
+.gallery:not(.gallery--is-overlay) .gallery-controls__button:enabled:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+@media (min-width: 1000px) {
   .gallery-controls__button {
     pointer-events: all;
     position: absolute;
@@ -181,4 +164,8 @@ body.js-disabled .gallery-controls {
   .gallery--is-overlay .gallery-controls__next-button {
     right: 0.75rem;
   }
+}
+
+.gallery-controls__icon {
+  flex-shrink: 0;
 }

@@ -57,16 +57,16 @@ function initGallery(gallery) {
   const prevButton = gallery.querySelector('.gallery-controls__prev-button')
   const nextButton = gallery.querySelector('.gallery-controls__next-button')
 
-  if (scrollContainer instanceof HTMLElement) {
+  if (scrollContainer instanceof HTMLElement && closeButton instanceof HTMLButtonElement) {
     for (const toggleOverlayButton of toggleOverlayButtons) {
       toggleOverlayButton.addEventListener('click', function () {
-        toggleOverlay(gallery, scrollContainer, prevButton, nextButton)
+        toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextButton)
       })
     }
 
     closeButton.addEventListener('click', function (event) {
       event.stopPropagation()
-      toggleOverlay(gallery, scrollContainer, prevButton, nextButton)
+      toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextButton)
     })
 
     if (prevButton instanceof HTMLButtonElement && nextButton instanceof HTMLButtonElement) {
@@ -89,11 +89,12 @@ function initGallery(gallery) {
 
 /**
  * @param {Element} gallery
+ * @param {HTMLButtonElement} closeButton
  * @param {HTMLElement} scrollContainer
  * @param {Element | null} prevButton
  * @param {Element | null} nextButton
  */
-function toggleOverlay(gallery, scrollContainer, prevButton, nextButton) {
+function toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextButton) {
   const galleryItemIndex = getGalleryItemIndex(scrollContainer)
 
   if (gallery.classList.contains('gallery--is-overlay')) {
@@ -102,6 +103,8 @@ function toggleOverlay(gallery, scrollContainer, prevButton, nextButton) {
   } else {
     gallery.classList.add('gallery--is-overlay')
     document.body.style.setProperty('overflow', 'hidden')
+
+    closeButton.focus()
 
     if (!gallery.hasAttribute('data-has-loaded-high-res-images')) {
       gallery.setAttribute('data-has-loaded-high-res-images', '')

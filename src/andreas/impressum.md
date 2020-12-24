@@ -2,7 +2,7 @@
 title: Impressum
 artist: andreas
 ---
-## Für den Inhalt verantwortlich:
+## Für den Inhalt verantwortlich
 
 Andreas Rudloff<br>
 Markt 32<br>
@@ -11,7 +11,7 @@ Telefon: 037423 2036
 
 E-Mail: <a href="mailto:andreasrudloff@fastmail.de">andreasrudloff@fastmail.de</a>
 
-## Haftungsausschluss:
+## Haftungsausschluss
 
 Für die Richtigkeit sämtlicher Inhalte übernehmen wir keine Garantie. Den Informationen liegen Quellen zugrunde, die wir für vertrauenswürdig halten. Eine Haftung oder Garantie für die Aktualität, Richtigkeit und Vollständigkeit der zur Verfügung gestellten Informationen kann aber nicht übernommen werden.
 

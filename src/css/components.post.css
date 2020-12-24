@@ -1,4 +1,7 @@
 .post {
   text-align: center;
-  margin-bottom: 6rem;
+}
+
+.post:not(:first-child) {
+  margin-top: 6rem;
 }
