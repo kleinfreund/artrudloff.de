@@ -36,7 +36,8 @@ layout: _includes/layouts/base.liquid
                 <figure class="gallery-item">
                   <img
                     class="gallery-item__image"
-                    src="{{ image.src }}"
+                    loading="lazy"
+                    data-src="{{ image.src }}"
                     data-high-res-src="{{ image.src_high_res }}"
                     alt="{{ image.alt }}"
                   >

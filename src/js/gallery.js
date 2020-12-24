@@ -2,11 +2,50 @@
   document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.remove("js-disabled");
 
+    const hasSupportForImageLoadingAttribute = 'loading' in HTMLImageElement.prototype
+    if (hasSupportForImageLoadingAttribute) {
+      // Set all images’ `src` attribute to allow for native browser lazy-loading.
+      for (const image of document.querySelectorAll('[data-src]')) {
+        image.setAttribute('src', image.dataset.src)
+        image.removeAttribute('data-src')
+      }
+    }
+
     for (const gallery of document.querySelectorAll('.gallery')) {
+      if (!hasSupportForImageLoadingAttribute) {
+        const observer = new IntersectionObserver(lazyLoadObserverCallback, { root: gallery })
+
+        const galleryItems = gallery.querySelectorAll('.gallery-item')
+        for (const galleryItem of galleryItems) {
+          observer.observe(galleryItem)
+        }
+      }
+
       initGallery(gallery)
     }
   });
 })();
+
+/**
+ *
+ * @param {IntersectionObserverEntry[]} entries
+ * @param {IntersectionObserver} observer
+ */
+function lazyLoadObserverCallback(entries, observer) {
+  for (const entry of entries) {
+    if (!entry.isIntersecting) {
+      return
+    }
+
+    const image = entry.target.querySelector('[data-src]')
+    if (image instanceof HTMLImageElement) {
+      image.setAttribute('src', image.dataset.src)
+      image.removeAttribute('data-src')
+    }
+
+    observer.unobserve(entry.target)
+  }
+}
 
 /**
  * @param {Element} gallery
