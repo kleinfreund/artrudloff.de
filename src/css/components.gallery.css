@@ -51,10 +51,6 @@
   outline-color: #fff;
 }
 
-.gallery:not(.gallery--is-overlay) .gallery-scroll-container {
-  max-height: 680px;
-}
-
 .gallery-scroll-container__item {
   scroll-snap-align: center;
   flex-basis: 100%;
@@ -97,6 +93,10 @@
 
 .gallery-item__image {
   min-height: 0;
+}
+
+.gallery:not(.gallery--is-overlay) .gallery-item__image {
+  max-height: 680px;
 }
 
 body.js-disabled .gallery-controls {
