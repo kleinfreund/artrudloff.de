@@ -9,9 +9,9 @@ images:
     src: /img/aquarelle/herbstzeitlose-1.jpg
     caption: 'Herbstzeitlose<br>Aquarell'
   - alt: 'Drei Quitten und Strandfrucht in blauer Schale'
-    src: /img/aquarelle/drei-quitten-und-strandfrucht-in-blauer-schale-aquarell.jpg
+    src: /img/aquarelle/drei-quitten-und-strandfrucht-in-blauer-schale.jpg
     caption: 'Drei Quitten und Strandfrucht in blauer Schale<br>Aquarell'
   - alt: 'Quitten, Amarilis und grüne Glasvase'
-    src: /img/aquarelle/quitten-amarilis-und-gruene-glasvase-aquarell.jpg
+    src: /img/aquarelle/quitten-amarilis-und-gruene-glasvase.jpg
     caption: 'Quitten, Amarilis und grüne Glasvase<br>Aquarell'
 ---

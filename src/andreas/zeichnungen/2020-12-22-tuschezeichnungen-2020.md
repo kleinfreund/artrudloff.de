@@ -1,5 +1,5 @@
 ---
-title: Tuschezeichnungen 2020
+title: 'Tuschezeichnungen 2020'
 date: 2020-11-22 10:00:00
 images:
   - alt: 'Der Vorsichtige und der glückliche Genießer im Funkloch'

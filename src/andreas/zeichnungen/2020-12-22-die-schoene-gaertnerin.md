@@ -1,5 +1,5 @@
 ---
-title: Die schöne Gärtnerin
+title: 'Die schöne Gärtnerin'
 date: 2020-11-22 09:00:00
 images:
   - alt: 'Roserich'
