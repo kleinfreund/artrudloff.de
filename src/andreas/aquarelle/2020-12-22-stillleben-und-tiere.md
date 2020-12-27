@@ -1,5 +1,5 @@
 ---
-title: 'Stillleben'
+title: 'Stillleben & Tiere'
 date: 2020-12-22 13:00:00
 images:
   - alt: 'Granatäpfel'
@@ -14,4 +14,10 @@ images:
   - alt: 'Quitten, Amarilis und grüne Glasvase'
     src: /img/aquarelle/quitten-amarilis-und-gruene-glasvase.jpg
     caption: 'Quitten, Amarilis und grüne Glasvase<br>Aquarell'
+  - alt: 'Gerhard'
+    src: /img/aquarelle/gerhard.jpg
+    caption: 'Gerhard'
+  - alt: 'Lotte'
+    src: /img/aquarelle/lotte.jpg
+    caption: 'Lotte'
 ---
