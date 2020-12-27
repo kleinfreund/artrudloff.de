@@ -38,7 +38,7 @@ layout: _includes/base.liquid
                     class="gallery-item__image"
                     loading="lazy"
                     data-src="{{ image.src }}"
-                    data-high-res-src="{{ image.src_high_res }}"
+                    {% if image.src_high_res %}data-high-res-src="{{ image.src_high_res }}"{% endif %}
                     alt="{{ image.alt }}"
                   >
 

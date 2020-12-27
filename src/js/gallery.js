@@ -1,12 +1,13 @@
-(function () {
-  document.addEventListener("DOMContentLoaded", function () {
-    document.body.classList.remove("js-disabled");
+const hasSupportForImageLoadingAttribute = 'loading' in HTMLImageElement.prototype
 
-    const hasSupportForImageLoadingAttribute = 'loading' in HTMLImageElement.prototype
+function start() {
+  document.addEventListener("DOMContentLoaded", function () {
+    document.body.classList.remove("js-disabled")
+
     if (hasSupportForImageLoadingAttribute) {
       // Set all images’ `src` attribute to allow for native browser lazy-loading.
       for (const image of document.querySelectorAll('[data-src]')) {
-        image.setAttribute('src', image.dataset.src)
+        image.setAttribute('src', image.getAttribute('data-src'))
         image.removeAttribute('data-src')
       }
     }
@@ -23,8 +24,8 @@
 
       initGallery(gallery)
     }
-  });
-})();
+  })
+}
 
 /**
  *
@@ -39,7 +40,7 @@ function lazyLoadObserverCallback(entries, observer) {
 
     const image = entry.target.querySelector('[data-src]')
     if (image instanceof HTMLImageElement) {
-      image.setAttribute('src', image.dataset.src)
+      image.setAttribute('src', image.getAttribute('data-src'))
       image.removeAttribute('data-src')
     }
 
@@ -70,7 +71,7 @@ function initGallery(gallery) {
     })
 
     if (prevButton instanceof HTMLButtonElement && nextButton instanceof HTMLButtonElement) {
-      prevButton.disabled = getGalleryItemIndex(scrollContainer) === 0
+      updateGalleryButtons(scrollContainer, prevButton, nextButton)
 
       prevButton.addEventListener('click', function () {
         goToPreviousImage(scrollContainer, prevButton, nextButton)
@@ -100,6 +101,8 @@ function toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextBu
   if (gallery.classList.contains('gallery--is-overlay')) {
     gallery.classList.remove('gallery--is-overlay')
     document.body.style.removeProperty('overflow')
+
+    scrollContainer.focus()
   } else {
     gallery.classList.add('gallery--is-overlay')
     document.body.style.setProperty('overflow', 'hidden')
@@ -108,13 +111,9 @@ function toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextBu
 
     if (!gallery.hasAttribute('data-has-loaded-high-res-images')) {
       gallery.setAttribute('data-has-loaded-high-res-images', '')
-      const images = gallery.querySelectorAll('.gallery-item__image')
-      for (const image of images) {
-        const highResSource = image.getAttribute('data-high-res-src')
-        if (highResSource) {
-          image.setAttribute('src', highResSource)
-          image.removeAttribute('data-high-res-src')
-        }
+      for (const image of gallery.querySelectorAll('[data-high-res-src]')) {
+        image.setAttribute('src', image.getAttribute('data-high-res-src'))
+        image.removeAttribute('data-high-res-src')
       }
     }
   }
@@ -189,7 +188,7 @@ function debounce(initialFunction, delay) {
 
   return (/** @type {any[]} */ ...args) => {
     // If the debounced function was already invoked before, this will cancel
-    // the earlier timeout; thus, it’s callback will not be invoked.
+    // the earlier timeout; thus, its callback will not be invoked.
     clearTimeout(timeoutId)
 
     // Starts a new timer which will call the initial function after the
@@ -199,3 +198,5 @@ function debounce(initialFunction, delay) {
     }, delay)
   }
 }
+
+start()
