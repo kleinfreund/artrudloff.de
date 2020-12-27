@@ -2,6 +2,9 @@
 title: 'Zeichnungen'
 date: 2020-12-22 12:02:00
 images:
+  - alt: 'Erster Raureif'
+    src: /img/zeichnungen/erster-raureif.jpg
+    caption: 'Erster Raureif'
   - alt: 'Märzbild'
     src: /img/zeichnungen/maerzbild.jpg
     caption: 'Märzbild'
