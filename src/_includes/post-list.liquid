@@ -27,7 +27,7 @@ layout: _includes/base.liquid
         <div
           class="gallery-scroll-container"
           role="region"
-          aria-label="Galerie"
+          aria-label="Bilder-Galerie für '{{ post.data.title }}'"
           tabindex="0"
         >
           {% for image in post.data.images %}
@@ -42,13 +42,11 @@ layout: _includes/base.liquid
                     alt="{{ image.alt }}"
                   >
 
-                  <figcaption>
-                    {% if image.caption %}
+                  {% if image.caption %}
+                    <figcaption>
                       {{ image.caption }}
-                    {% else %}
-                      <span class="visually-hidden">{{ image.alt }}</span>
-                    {% endif %}
-                  </figcaption>
+                    </figcaption>
+                  {% endif %}
                 </figure>
               </button>
             </div>
