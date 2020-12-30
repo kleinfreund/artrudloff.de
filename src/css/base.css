@@ -44,14 +44,6 @@ h1, h2, h3, h4, h5, h6, p, blockquote, ul, figure {
   margin-bottom: 1.5rem;
 }
 
-ul {
-  padding-left: 0;
-}
-
-li > ul {
-  margin-bottom: 0;
-}
-
 img {
   font-style: italic;
   max-width: 100%;
@@ -73,7 +65,7 @@ figcaption {
 
 blockquote {
   border-left: 4px solid var(--accent-color);
-  margin-left: -0.75rem;
+  margin-left: 0.75rem;
   padding-left: 0.75rem;
   font-style: italic;
 }
