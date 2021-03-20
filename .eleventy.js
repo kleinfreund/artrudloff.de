@@ -60,7 +60,6 @@ module.exports = function (eleventyConfig) {
   };
 };
 
-
 /**
  * @param {string} mainCssPath
  * @returns {string}
