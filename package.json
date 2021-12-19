@@ -11,10 +11,10 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
-    "clean-css": "^5.1.3",
+    "clean-css": "^5.2.2",
     "html-minifier": "^4.0.0",
     "make-synchronous": "^0.1.1",
     "rimraf": "^3.0.2",
-    "terser": "^5.7.1"
+    "terser": "^5.10.0"
   }
 }
