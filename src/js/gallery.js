@@ -3,8 +3,6 @@ const hasSupportForImageLoadingAttribute = 'loading' in HTMLImageElement.prototy
 init()
 
 function init() {
-  document.body.classList.remove('js-disabled')
-
   if (hasSupportForImageLoadingAttribute) {
     // Set all images’ `src` attribute to allow for native browser lazy-loading.
     for (const image of document.querySelectorAll('[data-src]')) {
