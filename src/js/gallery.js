@@ -1,30 +1,30 @@
 const hasSupportForImageLoadingAttribute = 'loading' in HTMLImageElement.prototype
 
-function start() {
-  document.addEventListener("DOMContentLoaded", function () {
-    document.body.classList.remove("js-disabled")
+init()
 
-    if (hasSupportForImageLoadingAttribute) {
-      // Set all images’ `src` attribute to allow for native browser lazy-loading.
-      for (const image of document.querySelectorAll('[data-src]')) {
-        image.setAttribute('src', image.getAttribute('data-src'))
-        image.removeAttribute('data-src')
+function init() {
+  document.body.classList.remove('js-disabled')
+
+  if (hasSupportForImageLoadingAttribute) {
+    // Set all images’ `src` attribute to allow for native browser lazy-loading.
+    for (const image of document.querySelectorAll('[data-src]')) {
+      image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
+      image.removeAttribute('data-src')
+    }
+  }
+
+  for (const gallery of document.querySelectorAll('.gallery')) {
+    if (!hasSupportForImageLoadingAttribute) {
+      const observer = new IntersectionObserver(lazyLoadObserverCallback, { root: gallery })
+
+      const galleryItems = gallery.querySelectorAll('.gallery-item')
+      for (const galleryItem of galleryItems) {
+        observer.observe(galleryItem)
       }
     }
 
-    for (const gallery of document.querySelectorAll('.gallery')) {
-      if (!hasSupportForImageLoadingAttribute) {
-        const observer = new IntersectionObserver(lazyLoadObserverCallback, { root: gallery })
-
-        const galleryItems = gallery.querySelectorAll('.gallery-item')
-        for (const galleryItem of galleryItems) {
-          observer.observe(galleryItem)
-        }
-      }
-
-      initGallery(gallery)
-    }
-  })
+    initGallery(gallery)
+  }
 }
 
 /**
@@ -40,7 +40,7 @@ function lazyLoadObserverCallback(entries, observer) {
 
     const image = entry.target.querySelector('[data-src]')
     if (image instanceof HTMLImageElement) {
-      image.setAttribute('src', image.getAttribute('data-src'))
+      image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
       image.removeAttribute('data-src')
     }
 
@@ -112,7 +112,7 @@ function toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextBu
     if (!gallery.hasAttribute('data-has-loaded-high-res-images')) {
       gallery.setAttribute('data-has-loaded-high-res-images', '')
       for (const image of gallery.querySelectorAll('[data-high-res-src]')) {
-        image.setAttribute('src', image.getAttribute('data-high-res-src'))
+        image.setAttribute('src', /** @type {string} */(image.getAttribute('data-high-res-src')))
         image.removeAttribute('data-high-res-src')
       }
     }
@@ -198,5 +198,3 @@ function debounce(initialFunction, delay) {
     }, delay)
   }
 }
-
-start()
