@@ -1,24 +1,23 @@
-const path = require('path');
-const fs = require('fs');
-
-const CleanCSS = require('clean-css');
-const htmlMinifier = require('html-minifier');
-const makeSynchronous = require('make-synchronous');
+const CleanCSS = require('clean-css')
+const fs = require('fs')
+const htmlMinifier = require('html-minifier')
+const makeSynchronous = require('make-synchronous')
+const path = require('path')
 
 // https://github.com/kangax/html-minifier#options-quick-reference
 const htmlMinifierOptions = {
   useShortDoctype: true,
   removeComments: true,
   collapseWhitespace: true
-};
+}
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
     strict_filters: true
-  });
+  })
 
-  eleventyConfig.setDataDeepMerge(true);
+  eleventyConfig.setDataDeepMerge(true)
 
   // Copies static files to the output directory
   eleventyConfig
@@ -26,16 +25,16 @@ module.exports = function (eleventyConfig) {
     .addPassthroughCopy('src/css')
     .addPassthroughCopy('src/js')
     .addPassthroughCopy('src/favicon.ico')
-    .addPassthroughCopy('src/.htaccess');
+    .addPassthroughCopy('src/.htaccess')
 
   // Filter for compressing CSS/JS
-  eleventyConfig.addFilter('resolve_css_imports', resolveCssImports);
-  eleventyConfig.addFilter('minify_css', minifyCss);
-  eleventyConfig.addFilter('minify_js', minifyJs);
+  eleventyConfig.addFilter('resolve_css_imports', resolveCssImports)
+  eleventyConfig.addFilter('minify_css', minifyCss)
+  eleventyConfig.addFilter('minify_js', minifyJs)
 
   // Compresses output HTML
   if (process.env.NODE_ENV === 'production') {
-    eleventyConfig.addTransform('minify_html', minifyHtml);
+    eleventyConfig.addTransform('minify_html', minifyHtml)
   }
 
   if (process.env.NODE_ENV !== 'production') {
@@ -45,8 +44,8 @@ module.exports = function (eleventyConfig) {
         console.log(JSON.stringify(value, null, 2))
       } catch { }
 
-      return require('util').inspect(value);
-    });
+      return require('util').inspect(value)
+    })
   }
 
   return {
@@ -57,26 +56,20 @@ module.exports = function (eleventyConfig) {
       includes: ''
     },
     templateFormats: ['md', 'liquid', 'html']
-  };
-};
+  }
+}
 
 /**
- * @param {string} mainCssPath
- * @returns {string}
+ * @param {string} cssPath
+ * @returns {string} the concatenated contents of the CSS files found by resolving `@import` rules in the CSS file at `cssPath`.
  */
-function resolveCssImports(mainCssPath) {
-  const mainCssContent = fs.readFileSync(path.join('src', mainCssPath), 'utf8');
-  const importRules = mainCssContent.split('\n').filter(line => line.startsWith('@import'));
-  const importPaths = importRules.map(importRule => {
-    return path.join('src', importRule.replace('@import \'', '').replace('\';', ''));
-  });
-
-  let concatenatedCssContent = '';
-  for (const importPath of importPaths) {
-    concatenatedCssContent += fs.readFileSync(importPath, 'utf8');
-  }
-
-  return concatenatedCssContent;
+function resolveCssImports(cssPath) {
+  return fs.readFileSync(path.resolve(__dirname, path.join('src', cssPath)), 'utf8')
+    .split(/\r?\n/)
+    .filter((line) => line.startsWith('@import'))
+    .map((rule) => rule.replace(/@import ['"]/, '').replace(/['"];/, ''))
+    .map((importPath) => fs.readFileSync(path.resolve(__dirname, path.join('src', importPath)), 'utf8'))
+    .join('')
 }
 
 /**
@@ -86,16 +79,19 @@ function resolveCssImports(mainCssPath) {
  * @returns {string} the minified CSS content
  */
 function minifyCss(concatenatedCssContent) {
-  const minifyResult = new CleanCSS().minify(concatenatedCssContent);
+  const minifyResult = new CleanCSS().minify(concatenatedCssContent)
 
   if (minifyResult.errors.length > 0) {
-    console.error('❌ Could not minify CSS.');
-    minifyResult.errors.forEach(error => { console.error('❌', error) });
+    console.error('❌ Could not minify CSS.')
 
-    return concatenatedCssContent;
+    for (const error of minifyResult.errors) {
+      console.error('❌', error)
+    }
+
+    return concatenatedCssContent
   }
 
-  return minifyResult.styles;
+  return minifyResult.styles
 }
 
 /**
@@ -106,23 +102,30 @@ function minifyCss(concatenatedCssContent) {
  * @returns {string} the minified HTML content
  */
 function minifyHtml(content, outputPath) {
-  if (outputPath.endsWith('.html')) {
-    return htmlMinifier.minify(content, htmlMinifierOptions);
-  }
-
-  return content;
+  return outputPath.endsWith('.html')
+    ? htmlMinifier.minify(content, htmlMinifierOptions)
+    : content
 }
 
+/**
+ * @param {string} content
+ * @returns {Promise<string>}
+ */
 async function minifyJsAsync(content) {
   try {
-    const { minify } = require('terser');
+    const { minify } = require('terser')
     const result = await minify(content)
-    return result.code
+    return result.code ?? ''
   } catch (error) {
     console.error('❌', error)
+    return ''
   }
 }
 
+/**
+ * @param {string} content
+ * @returns {string}
+ */
 function minifyJs(content) {
   // Eleventy currently doesn’t support asynchronous universal filters.
   return makeSynchronous(minifyJsAsync)(content)
