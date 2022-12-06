@@ -16,6 +16,6 @@
     "html-minifier": "^4.0.0",
     "make-synchronous": "^0.1.1",
     "rimraf": "^3.0.2",
-    "terser": "^5.15.1"
+    "terser": "^5.16.1"
   }
 }
