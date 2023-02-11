@@ -1,32 +1,34 @@
-const hasSupportForImageLoadingAttribute = 'loading' in HTMLImageElement.prototype
-
-init()
-
 function init() {
-  if (hasSupportForImageLoadingAttribute) {
-    // Set all images’ `src` attribute to allow for native browser lazy-loading.
-    for (const image of document.querySelectorAll('[data-src]')) {
-      image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
-      image.removeAttribute('data-src')
-    }
+  if ('loading' in HTMLImageElement.prototype) {
+    initNativeLazyLoading()
+  } else {
+    initFallbackLazyLoading()
   }
 
+  window.customElements.define('image-gallery', ImageGallery)
+}
+
+/**
+ * Sets all images’ `src` attribute to allow for native browser lazy-loading.
+ */
+function initNativeLazyLoading() {
+  for (const image of document.querySelectorAll('[data-src]')) {
+    image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
+    image.removeAttribute('data-src')
+  }
+}
+
+function initFallbackLazyLoading() {
   for (const gallery of document.querySelectorAll('.gallery')) {
-    if (!hasSupportForImageLoadingAttribute) {
-      const observer = new IntersectionObserver(lazyLoadObserverCallback, { root: gallery })
+    const observer = new IntersectionObserver(lazyLoadObserverCallback, { root: gallery })
 
-      const galleryItems = gallery.querySelectorAll('.gallery-item')
-      for (const galleryItem of galleryItems) {
-        observer.observe(galleryItem)
-      }
+    for (const galleryItem of gallery.querySelectorAll('.gallery-item')) {
+      observer.observe(galleryItem)
     }
-
-    initGallery(gallery)
   }
 }
 
 /**
- *
  * @param {IntersectionObserverEntry[]} entries
  * @param {IntersectionObserver} observer
  */
@@ -46,129 +48,182 @@ function lazyLoadObserverCallback(entries, observer) {
   }
 }
 
-/**
- * @param {Element} gallery
- */
-function initGallery(gallery) {
-  const scrollContainer = gallery.querySelector('.gallery-scroll-container')
-  const toggleOverlayButtons = gallery.querySelectorAll('.gallery-toggle-overlay-button')
-  const closeButton = gallery.querySelector('.gallery-close-overlay-button')
-  const prevButton = gallery.querySelector('.gallery-controls__prev-button')
-  const nextButton = gallery.querySelector('.gallery-controls__next-button')
+class ImageGallery extends HTMLElement {
+  /** @type {boolean} */ hasLoadedHighResImages = false
 
-  if (scrollContainer instanceof HTMLElement && closeButton instanceof HTMLButtonElement) {
-    for (const toggleOverlayButton of toggleOverlayButtons) {
-      toggleOverlayButton.addEventListener('click', function () {
-        toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextButton)
-      })
-    }
+  /** @type {HTMLElement} */ scrollContainer
+  /** @type {HTMLButtonElement} */ openOverlayButton
+  /** @type {HTMLButtonElement} */ closeOverlayButton
+  /** @type {HTMLButtonElement | null} */ prevButton
+  /** @type {HTMLButtonElement | null} */ nextButton
 
-    closeButton.addEventListener('click', function (event) {
-      event.stopPropagation()
-      toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextButton)
-    })
+  constructor() {
+    super()
 
-    if (prevButton instanceof HTMLButtonElement && nextButton instanceof HTMLButtonElement) {
-      updateGalleryButtons(scrollContainer, prevButton, nextButton)
+    this.scrollContainer = /** @type {HTMLElement} */ (this.querySelector('.gallery-scroll-container'))
+    this.openOverlayButton = /** @type {HTMLButtonElement} */ (this.querySelector('.gallery-open-overlay-button'))
+    this.closeOverlayButton = /** @type {HTMLButtonElement} */ (this.querySelector('.gallery-close-overlay-button'))
+    this.prevButton = /** @type {HTMLButtonElement | null} */ (this.querySelector('.gallery-controls__prev-button'))
+    this.nextButton = /** @type {HTMLButtonElement | null} */ (this.querySelector('.gallery-controls__next-button'))
 
-      prevButton.addEventListener('click', function () {
-        goToPreviousImage(scrollContainer, prevButton, nextButton)
-      })
-
-      nextButton.addEventListener('click', function () {
-        goToNextImage(scrollContainer, prevButton, nextButton)
-      })
-
-      scrollContainer.addEventListener('scroll', debounce(function () {
-        updateGalleryButtons(scrollContainer, prevButton, nextButton)
-      }, 50))
-    }
+    this.updateGalleryButtonDisabledState()
   }
-}
 
-/**
- * @param {Element} gallery
- * @param {HTMLButtonElement} closeButton
- * @param {HTMLElement} scrollContainer
- * @param {Element | null} prevButton
- * @param {Element | null} nextButton
- */
-function toggleOverlay(gallery, closeButton, scrollContainer, prevButton, nextButton) {
-  const galleryItemIndex = getGalleryItemIndex(scrollContainer)
+  get [Symbol.toStringTag]() {
+    return 'ImageGallery'
+  }
 
-  if (gallery.classList.contains('gallery--is-overlay')) {
-    gallery.classList.remove('gallery--is-overlay')
-    document.body.style.removeProperty('overflow')
+  connectedCallback() {
+    if (!this.isConnected) {
+      return
+    }
 
-    scrollContainer.focus()
-  } else {
-    gallery.classList.add('gallery--is-overlay')
-    document.body.style.setProperty('overflow', 'hidden')
+    this.ownerDocument.addEventListener('keydown', handleGalleryShortcuts)
+    const debouncedHandleScrollContainerScrollEvent = debounce(() => this.handleScrollContainerScroll, 50)
+    this.scrollContainer.addEventListener('scroll', debouncedHandleScrollContainerScrollEvent)
+    this.scrollContainer.addEventListener('click', this.handleScrollContainerClick)
+    this.openOverlayButton.addEventListener('click', this.handleOpenOverlayButtonClick)
+    this.closeOverlayButton.addEventListener('click', this.handleCloseOverlayButtonClick)
+    this.prevButton?.addEventListener('click', this.handlePrevButtonClick)
+    this.nextButton?.addEventListener('click', this.handleNextButtonClick)
+  }
 
-    closeButton.focus()
+  disconnectedCallback() {
+    this.ownerDocument.removeEventListener('keydown', handleGalleryShortcuts)
+  }
 
-    if (!gallery.hasAttribute('data-has-loaded-high-res-images')) {
-      gallery.setAttribute('data-has-loaded-high-res-images', '')
-      for (const image of gallery.querySelectorAll('[data-high-res-src]')) {
+  handleScrollContainerScroll = () => {
+    this.updateGalleryButtonDisabledState()
+  }
+
+  handleScrollContainerClick = () => {
+    this.toggleOverlay()
+  }
+
+  handleOpenOverlayButtonClick = () => {
+    this.toggleOverlay()
+  }
+
+  handleCloseOverlayButtonClick = () => {
+    this.toggleOverlay()
+  }
+
+  handlePrevButtonClick = () => {
+    this.goToImage(this.getGalleryItemIndex() - 1)
+  }
+
+  handleNextButtonClick = () => {
+    this.goToImage(this.getGalleryItemIndex() + 1)
+  }
+
+  toggleOverlay() {
+    // Retrieves the currently visible gallery item index **before** toggling the overlay mode which causes the scroll container to have different dimensions which would make that computation incorrect.
+    const galleryItemIndex = this.getGalleryItemIndex()
+
+    if (this.classList.contains('gallery--is-overlay')) {
+      this.closeOverlay()
+    } else {
+      this.openOverlay()
+    }
+
+    // Corrects the scroll position of the currently visible gallery item as the scroll container generally has different dimensions in overlay mode. That's why the correct index is determined **before** switching modes.
+    setTimeout(() => {
+      this.goToImage(galleryItemIndex)
+    }, 0)
+  }
+
+  openOverlay() {
+    this.classList.add('gallery--is-overlay')
+    this.ownerDocument.body.style.setProperty('overflow', 'hidden')
+
+    if (!this.hasLoadedHighResImages) {
+      this.hasLoadedHighResImages = true
+
+      for (const image of this.querySelectorAll('[data-high-res-src]')) {
         image.setAttribute('src', /** @type {string} */(image.getAttribute('data-high-res-src')))
         image.removeAttribute('data-high-res-src')
       }
     }
-  }
 
-  if (prevButton instanceof HTMLButtonElement && nextButton instanceof HTMLButtonElement) {
+    // Ensures that triggering the open overlay button doesn't also trigger the close button.
     setTimeout(() => {
-      goToImage(scrollContainer, prevButton, nextButton, galleryItemIndex)
+      this.closeOverlayButton.focus()
     }, 0)
   }
+
+  closeOverlay() {
+    this.classList.remove('gallery--is-overlay')
+    this.ownerDocument.body.style.removeProperty('overflow')
+
+    // Ensures that triggering the close overlay button doesn't also trigger the scroll container's click event listener.
+    setTimeout(() => {
+      this.scrollContainer.focus()
+    }, 0)
+  }
+
+  /**
+   * @param {number} galleryItemIndex
+   */
+  goToImage(galleryItemIndex) {
+    this.scrollContainer.scrollLeft = galleryItemIndex * this.scrollContainer.clientWidth
+    this.updateGalleryButtonDisabledState()
+  }
+
+  updateGalleryButtonDisabledState() {
+    if (!(this.prevButton instanceof HTMLButtonElement && this.nextButton instanceof HTMLButtonElement)) {
+      return
+    }
+
+    const galleryItemIndex = this.getGalleryItemIndex()
+
+    this.prevButton.disabled = galleryItemIndex <= 0
+    this.nextButton.disabled = galleryItemIndex >= this.scrollContainer.children.length - 1
+  }
+
+  /**
+   * @returns {number}
+   */
+  getGalleryItemIndex() {
+    return Math.round(this.scrollContainer.scrollLeft / this.scrollContainer.clientWidth)
+  }
+}
+
+/** @type {Record<string, (event: KeyboardEvent, gallery: ImageGallery) => void>} */
+const commands = {
+  'Escape': function (_event, gallery) {
+    if (gallery.classList.contains('gallery--is-overlay')) {
+      gallery.closeOverlayButton.dispatchEvent(new Event('click'))
+    }
+  },
+
+  'Enter': function (event, gallery) {
+    event.stopPropagation()
+
+    if (!gallery.classList.contains('gallery--is-overlay') && gallery.scrollContainer === document.activeElement) {
+      gallery.scrollContainer.dispatchEvent(new Event('click'))
+    }
+  },
 }
 
 /**
- * @param {HTMLElement} scrollContainer
- * @param {HTMLButtonElement} prevButton
- * @param {HTMLButtonElement} nextButton
+ * @param {KeyboardEvent} event
  */
-function goToPreviousImage(scrollContainer, prevButton, nextButton) {
-  goToImage(scrollContainer, prevButton, nextButton, getGalleryItemIndex(scrollContainer) - 1)
-}
+function handleGalleryShortcuts(event) {
+  if (!(event.target instanceof Element)) {
+    return
+  }
 
-/**
- * @param {HTMLElement} scrollContainer
- * @param {HTMLButtonElement} prevButton
- * @param {HTMLButtonElement} nextButton
- */
-function goToNextImage(scrollContainer, prevButton, nextButton) {
-  goToImage(scrollContainer, prevButton, nextButton, getGalleryItemIndex(scrollContainer) + 1)
-}
+  const imageGallery = /** @type {ImageGallery | null} */ (event.target.closest('.gallery'))
 
-/**
- * @param {HTMLElement} scrollContainer
- * @param {HTMLButtonElement} prevButton
- * @param {HTMLButtonElement} nextButton
- * @param {number} galleryItemIndex
- */
-function goToImage(scrollContainer, prevButton, nextButton, galleryItemIndex) {
-  scrollContainer.scrollLeft = galleryItemIndex * scrollContainer.clientWidth
-  updateGalleryButtons(scrollContainer, prevButton, nextButton)
-}
+  if (imageGallery === null) {
+    return
+  }
 
-/**
- * @param {HTMLElement} scrollContainer
- * @param {HTMLButtonElement} prevButton
- * @param {HTMLButtonElement} nextButton
- */
-function updateGalleryButtons(scrollContainer, prevButton, nextButton) {
-  const galleryItemIndex = getGalleryItemIndex(scrollContainer)
-  prevButton.disabled = galleryItemIndex <= 0
-  nextButton.disabled = galleryItemIndex >= scrollContainer.children.length - 1
-}
+  const command = commands[event.code]
 
-/**
- * @param {HTMLElement} scrollContainer
- * @returns {number}
- */
-function getGalleryItemIndex(scrollContainer) {
-  return Math.round(scrollContainer.scrollLeft / scrollContainer.clientWidth)
+  if (command) {
+    command(event, imageGallery)
+  }
 }
 
 /**
@@ -196,3 +251,5 @@ function debounce(initialFunction, delay) {
     }, delay)
   }
 }
+
+init()

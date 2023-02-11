@@ -7,7 +7,23 @@ layout: _includes/base.liquid
 
       <h2>{{ post.data.title }}</h2>
 
-      <div class="gallery">
+      <image-gallery class="gallery">
+        <button class="gallery-open-overlay-button button" type="button">
+          <span class="visually-hidden">Gallerie öffnen</span>
+
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="14"
+            aria-hidden="true"
+          >
+            <path d="M 0,0 H 6.5 V 2 H 2 V 5.5 H 0 Z" fill="currentColor" />
+            <path d="M 20,14 H 13.5 V 12 H 18 V 8.5 h 2 z" fill="currentColor" />
+            <path d="M 0,14 H 6.5 V 12 H 2 V 8.5 H 0 Z" fill="currentColor" />
+            <path d="M 20,0 H 13.5 V 2 H 18 v 3.5 h 2 z" fill="currentColor" />
+          </svg>
+        </button>
+
         <button class="gallery-close-overlay-button button" type="button">
           <span class="visually-hidden">Schließen</span>
 
@@ -32,23 +48,19 @@ layout: _includes/base.liquid
         >
           {% for image in post.data.images %}
             <div class="gallery-scroll-container__item">
-              <button class="gallery-toggle-overlay-button" type="button">
-                <figure class="gallery-item">
-                  <img
-                    class="gallery-item__image"
-                    loading="lazy"
-                    data-src="{{ image.src }}"
-                    {% if image.src_high_res %}data-high-res-src="{{ image.src_high_res }}"{% endif %}
-                    alt="{{ image.alt }}"
-                  >
+              <figure class="gallery-item">
+                <img
+                  class="gallery-item__image"
+                  loading="lazy"
+                  data-src="{{ image.src }}"
+                  {% if image.src_high_res %}data-high-res-src="{{ image.src_high_res }}"{% endif %}alt="{{ image.alt }}">
 
-                  {% if image.caption %}
-                    <figcaption>
-                      {{ image.caption }}
-                    </figcaption>
-                  {% endif %}
-                </figure>
-              </button>
+                {% if image.caption %}
+                  <figcaption>
+                    {{ image.caption }}
+                  </figcaption>
+                {% endif %}
+              </figure>
             </div>
           {% endfor %}
         </div>
@@ -65,7 +77,7 @@ layout: _includes/base.liquid
                 height="17"
                 aria-hidden="true"
               >
-                <path d="M.655 7.513l7.04-7.12a.862.862 0 011.23 0l.82.83c.34.343.34.899.002 1.242l-5.58 5.67 5.58 5.67c.338.344.337.9-.002 1.242l-.82.83a.862.862 0 01-1.23 0l-7.04-7.12a.886.886 0 010-1.244z" fill="currentColor"/>
+                <path d="M.655 7.513l7.04-7.12a.862.862 0 011.23 0l.82.83c.34.343.34.899.002 1.242l-5.58 5.67 5.58 5.67c.338.344.337.9-.002 1.242l-.82.83a.862.862 0 01-1.23 0l-7.04-7.12a.886.886 0 010-1.244z" fill="currentColor" />
               </svg>
             </button>
 
@@ -79,12 +91,12 @@ layout: _includes/base.liquid
                 height="17"
                 aria-hidden="true"
               >
-                <path d="M9.345 8.757l-7.04 7.12a.862.862 0 01-1.23 0l-.82-.83a.886.886 0 01-.002-1.242l5.58-5.67-5.58-5.67a.886.886 0 01.002-1.242l.82-.83a.862.862 0 011.23 0l7.04 7.12c.34.344.34.9 0 1.244z" fill="currentColor"/>
+                <path d="M9.345 8.757l-7.04 7.12a.862.862 0 01-1.23 0l-.82-.83a.886.886 0 01-.002-1.242l5.58-5.67-5.58-5.67a.886.886 0 01.002-1.242l.82-.83a.862.862 0 011.23 0l7.04 7.12c.34.344.34.9 0 1.244z" fill="currentColor" />
               </svg>
             </button>
           </div>
         {% endif %}
-      </div>
+      </image-gallery>
 
     {% else %}
 
