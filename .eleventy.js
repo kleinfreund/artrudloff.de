@@ -1,7 +1,7 @@
+const { minify } = require('terser')
 const CleanCSS = require('clean-css')
 const fs = require('fs')
 const htmlMinifier = require('html-minifier')
-const makeSynchronous = require('make-synchronous')
 const path = require('path')
 
 // https://github.com/kangax/html-minifier#options-quick-reference
@@ -111,22 +111,12 @@ function minifyHtml(content, outputPath) {
  * @param {string} content
  * @returns {Promise<string>}
  */
-async function minifyJsAsync(content) {
+async function minifyJs(content) {
   try {
-    const { minify } = require('terser')
-    const result = await minify(content)
+    const result = await minify(content, { mangle: { toplevel: true } })
     return result.code ?? ''
   } catch (error) {
     console.error('❌', error)
     return ''
   }
-}
-
-/**
- * @param {string} content
- * @returns {string}
- */
-function minifyJs(content) {
-  // Eleventy currently doesn’t support asynchronous universal filters.
-  return makeSynchronous(minifyJsAsync)(content)
 }
