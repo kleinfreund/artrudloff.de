@@ -1,51 +1,6 @@
 function init() {
-  if ('loading' in HTMLImageElement.prototype) {
-    initNativeLazyLoading()
-  } else {
-    initFallbackLazyLoading()
-  }
-
-
   document.addEventListener('keydown', handleKeyboardShortcut)
   window.customElements.define('image-gallery', ImageGallery)
-}
-
-/**
- * Sets all images’ `src` attribute to allow for native browser lazy-loading.
- */
-function initNativeLazyLoading() {
-  for (const image of document.querySelectorAll('[data-src]')) {
-    image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
-    image.removeAttribute('data-src')
-  }
-}
-
-function initFallbackLazyLoading() {
-  for (const gallery of document.querySelectorAll('.gallery')) {
-    const observer = new IntersectionObserver(lazyLoadObserverCallback, { root: gallery })
-
-    for (const galleryItem of gallery.querySelectorAll('.gallery-item')) {
-      observer.observe(galleryItem)
-    }
-  }
-}
-
-/**
- * @param {IntersectionObserverEntry[]} entries
- * @param {IntersectionObserver} observer
- */
-function lazyLoadObserverCallback(entries, observer) {
-  for (const entry of entries) {
-    if (!entry.isIntersecting) {
-      return
-    }
-
-    const image = /** @type {HTMLImageElement} */ (entry.target.querySelector('[data-src]'))
-    image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
-    image.removeAttribute('data-src')
-
-    observer.unobserve(entry.target)
-  }
 }
 
 /**
