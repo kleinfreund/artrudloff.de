@@ -80,6 +80,9 @@
   scroll-snap-align: center;
   flex-basis: 100%;
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gallery-item {
