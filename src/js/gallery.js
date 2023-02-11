@@ -5,6 +5,8 @@ function init() {
     initFallbackLazyLoading()
   }
 
+
+  document.addEventListener('keydown', handleKeyboardShortcut)
   window.customElements.define('image-gallery', ImageGallery)
 }
 
@@ -38,13 +40,24 @@ function lazyLoadObserverCallback(entries, observer) {
       return
     }
 
-    const image = entry.target.querySelector('[data-src]')
-    if (image instanceof HTMLImageElement) {
-      image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
-      image.removeAttribute('data-src')
-    }
+    const image = /** @type {HTMLImageElement} */ (entry.target.querySelector('[data-src]'))
+    image.setAttribute('src', /** @type {string} */(image.getAttribute('data-src')))
+    image.removeAttribute('data-src')
 
     observer.unobserve(entry.target)
+  }
+}
+
+/**
+ * @param {KeyboardEvent} event
+ */
+function handleKeyboardShortcut(event) {
+  if (event.target instanceof Element) {
+    const component = /** @type {ImageGallery | null} */ (event.target.closest('.gallery'))
+
+    if (component !== null) {
+      component.triggerCommand(event)
+    }
   }
 }
 
@@ -56,6 +69,20 @@ class ImageGallery extends HTMLElement {
   /** @type {HTMLButtonElement} */ closeOverlayButton
   /** @type {HTMLButtonElement | null} */ prevButton
   /** @type {HTMLButtonElement | null} */ nextButton
+
+  /** @type {Record<string, (event: KeyboardEvent) => void>} */ commands = {
+    Escape: () => {
+      if (this.classList.contains('gallery--is-overlay')) {
+        this.closeOverlay()
+      }
+    },
+
+    Enter: () => {
+      if (!this.classList.contains('gallery--is-overlay') && this.scrollContainer === this.ownerDocument.activeElement) {
+        this.scrollContainer.dispatchEvent(new Event('click'))
+      }
+    },
+  }
 
   constructor() {
     super()
@@ -78,7 +105,6 @@ class ImageGallery extends HTMLElement {
       return
     }
 
-    this.ownerDocument.addEventListener('keydown', handleGalleryShortcuts)
     const debouncedHandleScrollContainerScrollEvent = debounce(() => this.handleScrollContainerScroll, 50)
     this.scrollContainer.addEventListener('scroll', debouncedHandleScrollContainerScrollEvent)
     this.scrollContainer.addEventListener('click', this.handleScrollContainerClick)
@@ -86,10 +112,6 @@ class ImageGallery extends HTMLElement {
     this.closeOverlayButton.addEventListener('click', this.handleCloseOverlayButtonClick)
     this.prevButton?.addEventListener('click', this.handlePrevButtonClick)
     this.nextButton?.addEventListener('click', this.handleNextButtonClick)
-  }
-
-  disconnectedCallback() {
-    this.ownerDocument.removeEventListener('keydown', handleGalleryShortcuts)
   }
 
   handleScrollContainerScroll = () => {
@@ -186,43 +208,16 @@ class ImageGallery extends HTMLElement {
   getGalleryItemIndex() {
     return Math.round(this.scrollContainer.scrollLeft / this.scrollContainer.clientWidth)
   }
-}
 
-/** @type {Record<string, (event: KeyboardEvent, gallery: ImageGallery) => void>} */
-const commands = {
-  'Escape': function (_event, gallery) {
-    if (gallery.classList.contains('gallery--is-overlay')) {
-      gallery.closeOverlayButton.dispatchEvent(new Event('click'))
+  /**
+   * @param {KeyboardEvent} event
+   */
+  triggerCommand(event) {
+    const command = this.commands[event.code]
+
+    if (command) {
+      command(event)
     }
-  },
-
-  'Enter': function (event, gallery) {
-    event.stopPropagation()
-
-    if (!gallery.classList.contains('gallery--is-overlay') && gallery.scrollContainer === document.activeElement) {
-      gallery.scrollContainer.dispatchEvent(new Event('click'))
-    }
-  },
-}
-
-/**
- * @param {KeyboardEvent} event
- */
-function handleGalleryShortcuts(event) {
-  if (!(event.target instanceof Element)) {
-    return
-  }
-
-  const imageGallery = /** @type {ImageGallery | null} */ (event.target.closest('.gallery'))
-
-  if (imageGallery === null) {
-    return
-  }
-
-  const command = commands[event.code]
-
-  if (command) {
-    command(event, imageGallery)
   }
 }
 
