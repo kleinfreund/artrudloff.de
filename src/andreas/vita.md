@@ -1,6 +1,5 @@
 ---
 title: Vita
-artist: andreas
 ---
 <blockquote>
   <p>

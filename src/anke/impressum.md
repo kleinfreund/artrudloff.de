@@ -1,6 +1,5 @@
 ---
 title: Impressum
-artist: anke
 ---
 ## Für den Inhalt verantwortlich
 

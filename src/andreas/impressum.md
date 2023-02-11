@@ -1,6 +1,5 @@
 ---
 title: Impressum
-artist: andreas
 ---
 ## Für den Inhalt verantwortlich
 

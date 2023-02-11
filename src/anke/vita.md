@@ -1,6 +1,5 @@
 ---
 title: Vita
-artist: anke
 ---
 <blockquote>
   <p>
