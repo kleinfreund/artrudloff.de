@@ -1,5 +1,5 @@
 {
-  "layout": "_includes/base.liquid",
-  "permalink": "andreas/{{ page.fileSlug }}/index.html",
-  "artist": "andreas"
+	"layout": "_includes/base.liquid",
+	"permalink": "andreas/{{ page.fileSlug }}/index.html",
+	"artist": "andreas"
 }

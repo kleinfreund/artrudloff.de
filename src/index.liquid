@@ -1,148 +1,148 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Website von Anke & Andreas Rudloff</title>
+	<title>Website von Anke & Andreas Rudloff</title>
 
-  <meta name="description" content="Dies ist die Website von Anke & Andreas Rudloff. Wir zeigen hier Druckgrafik, Malerei, Plakate und Zeichnungen. Holzreliefs und Entwürfe für Glocken.">
+	<meta name="description" content="Dies ist die Website von Anke & Andreas Rudloff. Wir zeigen hier Druckgrafik, Malerei, Plakate und Zeichnungen. Holzreliefs und Entwürfe für Glocken.">
 
-  <style>
-    body {
-      margin: 0;
-    }
+	<style>
+		body {
+			margin: 0;
+		}
 
-    html,
-    body {
-      height: 100%;
-    }
+		html,
+		body {
+			height: 100%;
+		}
 
-    img {
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-    }
+		img {
+			max-width: 100%;
+			height: auto;
+			vertical-align: middle;
+		}
 
-    .artist-list {
-      margin: 0.75rem;
-      display: grid;
-      grid-gap: 1.5rem;
-    }
+		.artist-list {
+			margin: 0.75rem;
+			display: grid;
+			grid-gap: 1.5rem;
+		}
 
-    .artist-section {
-      display: inline-grid;
-      column-gap: 1.5rem;
-    }
+		.artist-section {
+			display: inline-grid;
+			column-gap: 1.5rem;
+		}
 
-    @media (max-width: 799.98px) {
-      .artist-list {
-        grid-gap: 4.5rem;
-        align-content: center;
-        grid-template-rows: min-content min-content;
-      }
-    }
+		@media (max-width: 799.98px) {
+			.artist-list {
+				grid-gap: 4.5rem;
+				align-content: center;
+				grid-template-rows: min-content min-content;
+			}
+		}
 
-    @media (max-width: 1199.98px) {
-      .artist-section {
-        justify-items: center;
-        grid-template-rows: min-content min-content;
-      }
+		@media (max-width: 1199.98px) {
+			.artist-section {
+				justify-items: center;
+				grid-template-rows: min-content min-content;
+			}
 
-      .office-image {
-        max-height: 350px;
-        width: auto;
-      }
-    }
+			.office-image {
+				max-height: 350px;
+				width: auto;
+			}
+		}
 
-    @media (min-width: 800px) {
-      .artist-list {
-        margin: 1.5rem;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        grid-template-columns: auto auto;
-      }
+		@media (min-width: 800px) {
+			.artist-list {
+				margin: 1.5rem;
+				height: 100%;
+				justify-content: center;
+				align-items: center;
+				grid-template-columns: auto auto;
+			}
 
-      .signature-image {
-        max-width: 350px;
-      }
-    }
+			.signature-image {
+				max-width: 350px;
+			}
+		}
 
-    @media (min-width: 1200px) {
-      .artist-section {
-        align-items: center;
-        grid-template-columns: auto auto;
-      }
+		@media (min-width: 1200px) {
+			.artist-section {
+				align-items: center;
+				grid-template-columns: auto auto;
+			}
 
-      .artist-section--inverted .office-image {
-        grid-row-start: 1;
-      }
+			.artist-section--inverted .office-image {
+				grid-row-start: 1;
+			}
 
-      .office-image {
-        max-height: 500px;
-        width: auto;
-      }
-    }
+			.office-image {
+				max-height: 500px;
+				width: auto;
+			}
+		}
 
-    .visually-hidden {
-      position: absolute;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      border: 0;
-      white-space: nowrap;
-    }
-  </style>
+		.visually-hidden {
+			position: absolute;
+			overflow: hidden;
+			clip: rect(0 0 0 0);
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			border: 0;
+			white-space: nowrap;
+		}
+	</style>
 </head>
 <body>
 
-  <main class="artist-list">
-    <h1 class="visually-hidden">Website von Anke & Andreas Rudloff</h1>
+	<main class="artist-list">
+		<h1 class="visually-hidden">Website von Anke & Andreas Rudloff</h1>
 
-    <a class="artist-section" href="/anke">
-      <span>
-        <span class="visually-hidden">Zur Website von Anke Rudloff</span>
+		<a class="artist-section" href="/anke">
+			<span>
+				<span class="visually-hidden">Zur Website von Anke Rudloff</span>
 
-        <img
-          class="signature-image" src="{{ '/img/lettering-anke.jpg' | url }}"
-          width="470"
-          height="182"
-          alt="Der Name “Anke Rudloff” in schwarzer Handschrift"
-        >
-      </span>
+				<img
+					class="signature-image" src="{{ '/img/lettering-anke.jpg' | url }}"
+					width="470"
+					height="182"
+					alt="Der Name “Anke Rudloff” in schwarzer Handschrift"
+				>
+			</span>
 
-      <img
-        class="office-image" src="{{ '/img/buero-anke.jpg' | url }}"
-        width="1000"
-        height="1364"
-        alt="Der Schreibtisch von Anke Rudloff"
-      >
-    </a>
+			<img
+				class="office-image" src="{{ '/img/buero-anke.jpg' | url }}"
+				width="1000"
+				height="1364"
+				alt="Der Schreibtisch von Anke Rudloff"
+			>
+		</a>
 
-    <a class="artist-section artist-section--inverted" href="/andreas">
-      <span>
-        <span class="visually-hidden">Zur Website von Andreas Rudloff</span>
+		<a class="artist-section artist-section--inverted" href="/andreas">
+			<span>
+				<span class="visually-hidden">Zur Website von Andreas Rudloff</span>
 
-        <img
-          class="signature-image" src="{{ '/img/lettering-andreas.jpg' | url }}"
-          width="470"
-          height="182"
-          alt="Der Name “Andreas Rudloff” in schwarzer Handschrift"
-        >
-      </span>
+				<img
+					class="signature-image" src="{{ '/img/lettering-andreas.jpg' | url }}"
+					width="470"
+					height="182"
+					alt="Der Name “Andreas Rudloff” in schwarzer Handschrift"
+				>
+			</span>
 
-      <img
-        class="office-image" src="{{ '/img/buero-andreas.jpg' | url }}"
-        width="1000"
-        height="1363"
-        alt="Eine Druckgrafikpresse in der Werkstatt von Andreas Rudloff"
-      >
-    </a>
-  </main>
+			<img
+				class="office-image" src="{{ '/img/buero-andreas.jpg' | url }}"
+				width="1000"
+				height="1363"
+				alt="Eine Druckgrafikpresse in der Werkstatt von Andreas Rudloff"
+			>
+		</a>
+	</main>
 
 </body>
 </html>

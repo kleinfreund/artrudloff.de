@@ -1,5 +1,5 @@
 {
-  "tags": "zeichnungen-anke",
-  "layout": "_includes/base.liquid",
-  "permalink": "anke/glocken/{{ page.fileSlug }}/index.html"
+	"tags": "zeichnungen-anke",
+	"layout": "_includes/base.liquid",
+	"permalink": "anke/glocken/{{ page.fileSlug }}/index.html"
 }

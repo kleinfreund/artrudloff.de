@@ -1,5 +1,5 @@
 {
-  "layout": "_includes/base.liquid",
-  "permalink": "anke/{{ page.fileSlug }}/index.html",
-  "artist": "anke"
+	"layout": "_includes/base.liquid",
+	"permalink": "anke/{{ page.fileSlug }}/index.html",
+	"artist": "anke"
 }

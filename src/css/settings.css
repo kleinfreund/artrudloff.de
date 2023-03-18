@@ -1,13 +1,13 @@
 :root {
-  --font-size: 1.25em;
-  --line-height: 1.5;
-  --font-family: Georgia, "Times New Roman", Times, serif;
+	--font-size: 1.25em;
+	--line-height: 1.5;
+	--font-family: Georgia, "Times New Roman", Times, serif;
 
-  --text-color: hsl(0, 0%, 18%);
-  --background-color: #fff;
-  --focus-color: hsl(0, 100%, 44%);
-  --text-color-disabled: hsl(0, 0%, 40%);
+	--text-color: hsl(0, 0%, 18%);
+	--background-color: #fff;
+	--focus-color: hsl(0, 100%, 44%);
+	--text-color-disabled: hsl(0, 0%, 40%);
 
-  --nav-text-color: #fff;
-  --nav-background-color: hsl(0, 0%, 7%);
+	--nav-text-color: #fff;
+	--nav-background-color: hsl(0, 0%, 7%);
 }

@@ -1,21 +1,21 @@
 .button {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 64px;
-  height: 64px;
-  border: 2px dashed transparent;
-  border-radius: 50%;
-  color: #fff;
-  background-color: #000;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 64px;
+	height: 64px;
+	border: 2px dashed transparent;
+	border-radius: 50%;
+	color: #fff;
+	background-color: #000;
 }
 
 .button:focus {
-  outline: none;
-  border-color: var(--focus-color);
+	outline: none;
+	border-color: var(--focus-color);
 }
 
 .button:enabled:hover {
-  color: #000;
-  background-color: #fff;
+	color: #000;
+	background-color: #fff;
 }
