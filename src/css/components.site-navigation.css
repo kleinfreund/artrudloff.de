@@ -1,34 +1,49 @@
 .site-head {
+  position: relative;
+  padding: 0.125rem 0.75rem;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   color: var(--nav-text-color);
   background-color: var(--nav-background-color);
 }
 
-@media (max-width: 999.98px) {
-  .site-head {
-    padding-top: 0.75rem;
-    flex-direction: column;
-    flex-wrap: wrap;
-  }
-}
-
-@media (min-width: 1000px) {
-  .site-head {
-    padding-left: 0.75rem;
-  }
-
-  .site-head > :not(:first-child) {
-    margin-left: 3rem;
-  }
-}
-
 .site-head a {
+  flex-shrink: 0;
   color: currentColor;
   text-decoration: none;
 }
 
+.site-nav-toggle-button {
+  width: 36px;
+  height: 36px;
+}
 
+.site-nav-toggle-button[aria-pressed='false'] .site-nav-toggle-button__close-icon,
+.site-nav-toggle-button[aria-pressed='true'] .site-nav-toggle-button__open-icon {
+  display: none;
+}
+
+/* Extends the toggle button's click target across the whole page so that clicking anywhere activates it and thus closes the site navigation. */
+.site-nav-toggle-button[aria-pressed='true']::before {
+  content: '';
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+}
+
+
+/* Hides the toggle button in general when JavaScript is disabled because toggling the navigation requires JavaScript. */
+:root.js-disabled .site-nav-toggle-button {
+  display: none;
+}
+
+/* Always hides the toggle button when we can just show the entire navigation. */
+@media (min-width: 1000px) {
+  .site-nav-toggle-button {
+    display: none;
+  }
+}
 
 .site-nav {
   list-style: none;
@@ -36,23 +51,53 @@
   margin-bottom: 0;
   padding-left: 0;
   display: flex;
-  align-items: center;
+}
+
+:root.js-disabled .site-nav {
+  flex-wrap: wrap;
 }
 
 @media (max-width: 999.98px) {
+  :root:not(.js-disabled) .site-nav {
+    position: absolute;
+    z-index: 2;
+    top: 100%;
+    right: 0;
+    max-width: 300px;
+    padding: 0.125rem;
+    flex-direction: column;
+    color: var(--nav-text-color);
+    background-color: var(--nav-background-color);
+  }
+
+  /*
+  Hides the navigation if all the following are true:
+  - JavaScript is enabled
+  - there isn't enough space
+  - the toggle button isn't pressed
+  */
+  :root:not(.js-disabled) .site-nav-toggle-button[aria-pressed='false']+.site-nav {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
   .site-nav {
-    flex-wrap: wrap;
+    align-items: center;
   }
 }
 
 .site-nav__item {
-  padding: 0.75rem;
+  display: block;
+  padding: 0.5rem 1rem;
 }
+
 .site-nav__item:focus {
   outline-offset: -2px;
 }
 
 .site-nav__item:hover,
 .site-nav__item:active {
-  background-color: var(--accent-color);
+  color: var(--nav-background-color);
+  background-color: var(--nav-text-color);
 }

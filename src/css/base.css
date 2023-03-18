@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -27,19 +28,23 @@ main {
 }
 
 :focus {
-  outline: 2px solid var(--accent-color);
+  outline: 2px solid var(--focus-color);
 }
 
 a {
   color: currentColor;
 }
 
-a:hover,
-a:active {
-  color: var(--accent-color-dark);
-}
-
-h1, h2, h3, h4, h5, h6, p, blockquote, ul, figure {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+ul,
+figure {
   margin-top: 0;
   margin-bottom: 1.5rem;
 }
@@ -50,11 +55,12 @@ img {
   height: auto;
 }
 
-img, svg {
+img,
+svg {
   vertical-align: middle;
 }
 
-figure > img {
+figure>img {
   display: block;
 }
 
@@ -64,13 +70,13 @@ figcaption {
 }
 
 blockquote {
-  border-left: 4px solid var(--accent-color);
+  border-left: 4px solid currentColor;
   margin-left: 0.75rem;
   padding-left: 0.75rem;
   font-style: italic;
 }
 
-blockquote > :last-child {
+blockquote> :last-child {
   margin-bottom: 0;
 }
 

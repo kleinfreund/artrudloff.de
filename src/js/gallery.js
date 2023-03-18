@@ -1,4 +1,4 @@
-function init() {
+function initGallery() {
   document.addEventListener('keydown', handleKeyboardShortcut)
   window.customElements.define('image-gallery', ImageGallery)
 }
@@ -202,4 +202,4 @@ function debounce(initialFunction, delay) {
   }
 }
 
-init()
+initGallery()

@@ -5,9 +5,8 @@
 
   --text-color: hsl(0, 0%, 18%);
   --background-color: #fff;
+  --focus-color: hsl(0, 100%, 44%);
   --text-color-disabled: hsl(0, 0%, 40%);
-  --accent-color: hsl(0, 100%, 44%);
-  --accent-color-dark: hsl(0, 100%, 29%);
 
   --nav-text-color: #fff;
   --nav-background-color: hsl(0, 0%, 7%);

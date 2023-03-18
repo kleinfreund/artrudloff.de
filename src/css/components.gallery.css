@@ -34,6 +34,10 @@
   background-color: #fff;
 }
 
+:root.js-disabled .gallery-open-overlay-button {
+  display: none;
+}
+
 .gallery-open-overlay-button:enabled:hover {
   color: #fff;
   background-color: #000;
