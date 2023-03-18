@@ -1,11 +1,6 @@
 .gallery {
+  position: relative;
   display: block;
-}
-
-@media (min-width: 1000px) {
-  .gallery {
-    position: relative;
-  }
 }
 
 .gallery--is-overlay {
@@ -107,7 +102,7 @@
   max-height: 680px;
 }
 
-body.js-disabled .gallery-controls {
+:root.js-disabled .gallery-controls {
   display: none;
 }
 
