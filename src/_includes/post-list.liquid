@@ -2,6 +2,8 @@
 layout: _includes/base.liquid
 ---
 {% for post in collections[collection_name] reversed %}
+  {% assign post_index = forloop.index0 %}
+
   <article class="post">
     {% if post.data.images %}
 
@@ -47,13 +49,15 @@ layout: _includes/base.liquid
           tabindex="0"
         >
           {% for image in post.data.images %}
+            {% assign image_index = forloop.index0 %}
             <div class="gallery-scroll-container__item">
               <figure class="gallery-item">
                 <img
                   class="gallery-item__image"
-                  loading="lazy"
+                  {% if post_index > 0 or image_index > 0 %}loading="lazy"{% endif %}
                   src="{{ image.src }}"
-                  {% if image.src_high_res %}data-high-res-src="{{ image.src_high_res }}"{% endif %}alt="{{ image.alt }}"
+                  {% if image.src_high_res %}data-high-res-src="{{ image.src_high_res }}"{% endif %}
+                  alt="{{ image.alt }}"
                 >
 
                 {% if image.caption %}
