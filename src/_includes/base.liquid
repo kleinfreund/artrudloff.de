@@ -35,6 +35,7 @@
       {%- for link in metadata[artist].links -%}
         <a class="site-nav__item" href="{{ link.url }}">
           {{ link.text }}
+          {% if link.url == '/' %}<span class="visually-hidden">(Übersicht)</span>{% endif %}
         </a>
       {%- endfor -%}
     </nav>
