@@ -12,23 +12,23 @@ body {
 body {
 	overflow-y: scroll;
 	margin: 0;
-	font-size: var(--font-size);
-	line-height: var(--line-height);
-	font-family: var(--font-family);
-	color: var(--text-color);
+	font-size: var(--font-size-60);
+	line-height: var(--line-height-text);
+	font-family: var(--font-family-text);
+	color: var(--c-grey-20);
 	background-color: var(--background-color);
 }
 
 main {
 	display: block;
 	max-width: 1000px;
-	margin: 9rem auto;
-	padding-right: 0.75rem;
-	padding-left: 0.75rem;
+	margin: var(--space-140) auto;
+	padding-right: var(--space-50);
+	padding-left: var(--space-50);
 }
 
 :focus {
-	outline: 2px solid var(--focus-color);
+	outline: var(--width-border-10) solid var(--c-black);
 }
 
 a {
@@ -46,7 +46,7 @@ blockquote,
 ul,
 figure {
 	margin-top: 0;
-	margin-bottom: 1.5rem;
+	margin-bottom: var(--space-80);
 }
 
 img {
@@ -65,14 +65,14 @@ figure>img {
 }
 
 figcaption {
-	margin-top: 1.5rem;
-	font-size: 16px;
+	margin-top: var(--space-80);
+	font-size: var(--font-size-40);
 }
 
 blockquote {
-	border-left: 4px solid currentColor;
-	margin-left: 0.75rem;
-	padding-left: 0.75rem;
+	border-left: var(--width-border-20) solid currentColor;
+	margin-left: var(--space-50);
+	padding-left: var(--space-50);
 	font-style: italic;
 }
 
@@ -81,15 +81,35 @@ blockquote> :last-child {
 }
 
 button {
+	--_button-text-color: var(--c-white);
+	--_button-background-color: var(--c-black);
+	--_button-border-color: transparent;
+
 	appearance: none;
 	margin: 0;
 	padding: 0;
-	border: none;
-	color: inherit;
-	background-color: transparent;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--icon-size-120);
+	height: var(--icon-size-120);
+	border: var(--width-border-10) dashed var(--_button-border-color);
+	border-radius: 50%;
+	color: var(--_button-text-color);
+	background-color: var(--_button-background-color);
 	font: inherit;
 }
 
 button:disabled {
-	color: var(--text-color-disabled);
+	--_button-text-color: var(--c-grey-10);
+}
+
+button:focus {
+	outline: none;
+	--_button-border-color: var(--c-black);
+}
+
+button:enabled:hover {
+	--_button-text-color: var(--c-black);
+	--_button-background-color: var(--c-white);
 }

@@ -1,13 +1,11 @@
 .site-head {
-	--focus-color: #fff;
-
 	position: relative;
-	padding: 0.125rem 0.75rem;
+	padding: var(--space-10) var(--space-50);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	color: var(--nav-text-color);
-	background-color: var(--nav-background-color);
+	color: var(--c-white);
+	background-color: var(--c-grey-30);
 }
 
 .site-head a {
@@ -16,9 +14,13 @@
 	text-decoration: none;
 }
 
+.site-head a:focus {
+	outline-color: var(--c-white);
+}
+
 .site-nav-toggle-button {
-	width: 36px;
-	height: 36px;
+	width: var(--icon-size-90);
+	height: var(--icon-size-90);
 }
 
 .site-nav-toggle-button[aria-pressed='false'] .site-nav-toggle-button__close-icon,
@@ -58,16 +60,16 @@
 }
 
 @media (max-width: 1099.98px) {
-	:root:not(.js-disabled) .site-nav {
+	:where(:root:not(.js-disabled)) .site-nav {
 		position: absolute;
 		z-index: 2;
 		top: 100%;
 		right: 0;
 		max-width: 300px;
-		padding: 0.125rem;
+		padding: var(--space-10);
 		flex-direction: column;
-		color: var(--nav-text-color);
-		background-color: var(--nav-background-color);
+		color: var(--c-white);
+		background-color: var(--c-grey-30);
 	}
 
 	/*
@@ -76,7 +78,7 @@
 	- there isn't enough space
 	- the toggle button isn't pressed
 	*/
-	:root:not(.js-disabled) .site-nav-toggle-button[aria-pressed='false']+.site-nav {
+	:where(:root:not(.js-disabled)) .site-nav-toggle-button[aria-pressed='false']+.site-nav {
 		display: none;
 	}
 }
@@ -89,7 +91,7 @@
 
 .site-nav__item {
 	display: block;
-	padding: 0.5rem 1rem;
+	padding: var(--space-40) var(--space-60);
 }
 
 .site-nav__item:focus {
@@ -98,6 +100,6 @@
 
 .site-nav__item:hover,
 .site-nav__item:active {
-	color: var(--nav-background-color);
-	background-color: var(--nav-text-color);
+	color: var(--c-black);
+	background-color: var(--c-white);
 }

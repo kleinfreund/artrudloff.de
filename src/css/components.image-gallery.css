@@ -2,39 +2,56 @@
 	display: none !important;
 }
 
+/*
+image-gallery uses a 4x2 grid layout for positioning the gallery's content and the previous and next buttons without resorting to absolutely positioning the buttons.
+
+If there is a lot of space, the two outer columns hold the previous and next buttons while the two inner columns hold the gallery's content. In this configuration, all elements only occupy the first row. That's is why it's important to not *explicitly* define more than one row (either via `grid-template-rows` or `grid-template-areas`: this would render those extra empty rows and any gaps between them.
+
+If there isn't a lot of space, the previous and next buttons are moved to the second row and made to occupy two cells each. This way, they can be seemingly centered by placing the previous button at flex-end and the next button at flex-start of their two cells. The gallery's content now takes up all cells of the first row.
+*/
 image-gallery {
-	--focus-color: #000;
+	--_ig-text-color: var(--c-grey-20);
+	--_ig-background-color: var(--c-white);
+	--_ig-focus-color: var(--c-black);
 
 	container-name: image-gallery;
 	container-type: inline-size;
 	position: relative;
 	display: grid;
 	grid-template-columns: min-content repeat(2, minmax(0, 1fr)) min-content;
-	gap: 0.75rem;
+	gap: var(--space-50);
 	align-items: center;
-	color: var(--text-color);
-	background-color: var(--background-color);
+	color: var(--_ig-text-color);
+	background-color: var(--_ig-background-color);
 }
 
 image-gallery:where([data-is-overlay-open]) {
-	--text-color: #fff;
-	--background-color: hsl(0 0% 0% / 0.95);
-	--focus-color: #fff;
+	--_ig-text-color: var(--c-white);
+	--_ig-background-color: hsl(0 0% 0% / 0.95);
+	--_ig-focus-color: var(--c-white);
 
 	position: fixed;
 	z-index: 1;
 	inset: 0;
-	padding: 0 0.75rem;
+	padding: 0 var(--space-50);
 }
 
-:where(image-gallery) .button {
-	--text-color: inherit;
-	--background-color: transparent;
+:where(image-gallery[data-is-overlay-open]) :focus {
+	outline-color: var(--c-white);
 }
 
-:where(image-gallery:not([data-is-overlay-open])) .button:enabled:hover {
-	--text-color: #fff;
-	--background-color: #000;
+:where(image-gallery[data-is-overlay-open]) button:focus {
+	--_button-border-color: var(--c-white);
+}
+
+:where(image-gallery) button {
+	--_button-text-color: inherit;
+	--_button-background-color: transparent;
+}
+
+:where(image-gallery:not([data-is-overlay-open])) button:enabled:hover {
+	--_button-text-color: var(--c-white);
+	--_button-background-color: var(--c-black);
 }
 
 .ig-open-overlay-button {
@@ -51,8 +68,8 @@ image-gallery:where([data-is-overlay-open]) {
 
 .ig-close-overlay-button {
 	position: absolute;
-	right: 0.75rem;
-	top: 0.75rem;
+	right: var(--space-50);
+	top: var(--space-50);
 }
 
 :where(image-gallery:not([data-is-overlay-open])) .ig-close-overlay-button {
@@ -98,10 +115,8 @@ image-gallery-item {
 
 .ig-figure {
 	max-height: 100%;
-	margin-bottom: 0;
-	margin-right: 0;
-	margin-left: 0;
-	padding: 0.75rem;
+	margin: 0;
+	padding: var(--space-50);
 	display: inline-flex;
 	flex-direction: column;
 	align-items: center;
