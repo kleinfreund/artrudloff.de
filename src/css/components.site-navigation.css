@@ -39,25 +39,23 @@
 }
 
 /* Always hides the toggle button when we can just show the entire navigation. */
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
 	.site-nav-toggle-button {
 		display: none;
 	}
 }
 
 .site-nav {
-	list-style: none;
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-left: 0;
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
 }
 
 :root.js-disabled .site-nav {
 	flex-wrap: wrap;
 }
 
-@media (max-width: 999.98px) {
+@media (max-width: 1099.98px) {
 	:root:not(.js-disabled) .site-nav {
 		position: absolute;
 		z-index: 2;
@@ -81,7 +79,7 @@
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
 	.site-nav {
 		align-items: center;
 	}
