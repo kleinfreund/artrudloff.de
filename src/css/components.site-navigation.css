@@ -38,7 +38,7 @@
 
 
 /* Hides the toggle button in general when JavaScript is disabled because toggling the navigation requires JavaScript. */
-:root.js-disabled .site-nav-toggle-button {
+:where(:root[data-js-disabled]) .site-nav-toggle-button {
 	display: none;
 }
 
@@ -55,12 +55,12 @@
 	justify-content: flex-end;
 }
 
-:root.js-disabled .site-nav {
+:where(:root[data-js-disabled]) .site-nav {
 	flex-wrap: wrap;
 }
 
 @media (max-width: 1099.98px) {
-	:where(:root:not(.js-disabled)) .site-nav {
+	:where(:root:not([data-js-disabled])) .site-nav {
 		position: absolute;
 		z-index: 2;
 		top: 100%;
@@ -78,7 +78,7 @@
 	- there isn't enough space
 	- the toggle button isn't pressed
 	*/
-	:where(:root:not(.js-disabled)) .site-nav-toggle-button[aria-pressed='false']+.site-nav {
+	:where(:root:not([data-js-disabled])) .site-nav-toggle-button[aria-pressed='false']+.site-nav {
 		display: none;
 	}
 }
