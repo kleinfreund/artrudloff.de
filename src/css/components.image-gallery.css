@@ -56,8 +56,8 @@ image-gallery:where([data-is-overlay-open]) {
 
 .ig-open-overlay-button {
 	position: absolute;
-	right: 0;
-	top: 0;
+	inset-inline-end: 0;
+	inset-block-start: 0;
 }
 
 :where(image-gallery:not(:hover)) .ig-open-overlay-button:where(:not(:focus)),
@@ -68,8 +68,8 @@ image-gallery:where([data-is-overlay-open]) {
 
 .ig-close-overlay-button {
 	position: absolute;
-	right: var(--space-50);
-	top: var(--space-50);
+	inset-inline-end: var(--space-50);
+	inset-block-start: var(--space-50);
 }
 
 :where(image-gallery:not([data-is-overlay-open])) .ig-close-overlay-button {
@@ -80,8 +80,8 @@ image-gallery:where([data-is-overlay-open]) {
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
-	width: 100%;
-	max-height: 100%;
+	inline-size: 100%;
+	max-block-size: 100%;
 	display: flex;
 	align-items: stretch;
 }
@@ -114,7 +114,7 @@ image-gallery-item {
 }
 
 .ig-figure {
-	max-height: 100%;
+	max-block-size: 100%;
 	margin: 0;
 	padding: var(--space-50);
 	display: inline-flex;
@@ -124,11 +124,11 @@ image-gallery-item {
 }
 
 .ig-figure>img {
-	min-height: 0;
+	min-block-size: 0;
 }
 
 :where(image-gallery:not([data-is-overlay-open]) .ig-figure) img {
-	max-height: 680px;
+	max-block-size: 680px;
 }
 
 .ig-previous-button>svg {

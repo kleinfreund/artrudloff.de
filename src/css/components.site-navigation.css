@@ -19,8 +19,8 @@
 }
 
 .site-nav-toggle-button {
-	width: var(--icon-size-90);
-	height: var(--icon-size-90);
+	inline-size: var(--icon-size-90);
+	aspect-ratio: 1/1;
 }
 
 .site-nav-toggle-button[aria-pressed='false'] .site-nav-toggle-button__close-icon,
@@ -65,7 +65,7 @@
 		z-index: 2;
 		top: 100%;
 		right: 0;
-		max-width: 300px;
+		max-inline-size: 300px;
 		padding: var(--space-10);
 		flex-direction: column;
 		color: var(--c-white);

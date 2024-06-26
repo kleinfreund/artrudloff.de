@@ -2,6 +2,6 @@
 	text-align: center;
 }
 
-.post:not(:first-child) {
-	margin-top: 6rem;
+.post+.post {
+	margin-block-start: 6rem;
 }
