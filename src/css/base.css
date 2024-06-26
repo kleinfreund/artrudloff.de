@@ -5,7 +5,6 @@
 }
 
 body {
-	overflow-y: scroll;
 	margin: 0;
 	font-size: var(--font-size-60);
 	line-height: var(--line-height-text);
@@ -51,10 +50,6 @@ img {
 
 img,
 svg {
-	vertical-align: middle;
-}
-
-figure>img {
 	display: block;
 }
 
@@ -87,7 +82,7 @@ button {
 	align-items: center;
 	inline-size: var(--icon-size-120);
 	aspect-ratio: 1/1;
-	border: var(--width-border-10) dashed var(--_button-border-color);
+	border: var(--width-border-10) var(--_button-border-color);
 	border-radius: 50%;
 	color: var(--_button-text-color);
 	background-color: var(--_button-background-color);
@@ -98,12 +93,16 @@ button:disabled {
 	--_button-text-color: var(--c-grey-10);
 }
 
-button:focus {
-	outline: none;
-	--_button-border-color: var(--c-black);
-}
-
 button:enabled:hover {
 	--_button-text-color: var(--c-black);
 	--_button-background-color: var(--c-white);
+}
+
+button:focus {
+	outline: none;
+	--_button-border-color: var(--c-white);
+}
+
+button:focus:enabled:hover {
+	--_button-border-color: var(--c-black);
 }

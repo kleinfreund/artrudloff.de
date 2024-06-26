@@ -27,7 +27,7 @@ class ImageGallery extends HTMLElement {
 	constructor() {
 		super()
 
-		this.removeAttribute('data-js-disabled')
+		this.setAttribute('data-js', 'true')
 
 		this.#scrollContainer = /** @type {HTMLElement} */ (this.querySelector('.ig-scroll-container'))
 		this.#scrollContainer.addEventListener('scroll', this.#updateButtonDisabledState)

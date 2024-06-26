@@ -1,4 +1,7 @@
-<image-gallery data-js-disabled>
+<image-gallery
+  {% if class %}class="{{ class }}"{% endif %}
+  data-js="false"
+>
   <button class="ig-open-overlay-button button" type="button">
     <span class="visually-hidden">Gallerie öffnen</span>
 

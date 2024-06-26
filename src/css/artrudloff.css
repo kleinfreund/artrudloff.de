@@ -2,8 +2,10 @@
 
 @import '/css/base.css';
 
+@import '/css/components.site-head.css';
+@import '/css/components.nav.css';
 @import '/css/components.post.css';
 @import '/css/components.image-gallery.css';
-@import '/css/components.site-navigation.css';
+@import '/css/components.toggle-button.css';
 
 @import '/css/utilities.visually-hidden.css';

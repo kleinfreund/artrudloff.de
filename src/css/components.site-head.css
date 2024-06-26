@@ -1,0 +1,19 @@
+.site-head {
+  position: relative;
+  padding: var(--space-10) var(--space-50);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--c-white);
+  background-color: var(--c-grey-30);
+}
+
+.site-head a {
+  flex-shrink: 0;
+  color: currentColor;
+  text-decoration: none;
+}
+
+.site-head a:focus {
+  outline-color: var(--c-white);
+}

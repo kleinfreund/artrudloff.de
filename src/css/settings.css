@@ -1,4 +1,4 @@
-:root {
+html {
 	--space-10: 2px;
 	--space-20: 4px;
 	--space-30: 6px;
@@ -23,7 +23,7 @@
 	--font-size-40: 1rem;
 	--font-size-60: 1.25rem;
 	--line-height-text: 1.5;
-	--font-family-text: Georgia, "Times New Roman", Times, serif;
+	--font-family-text: Georgia, 'Times New Roman', Times, serif;
 
 	--c-white: #fff;
 	--c-black: #000;

@@ -1,4 +1,4 @@
-:where(image-gallery[data-js-disabled]) button {
+:where(image-gallery[data-js='false']) button {
 	display: none !important;
 }
 
@@ -36,15 +36,7 @@ image-gallery:where([data-is-overlay-open]) {
 	padding: 0 var(--space-50);
 }
 
-:where(image-gallery[data-is-overlay-open]) :focus {
-	outline-color: var(--c-white);
-}
-
-:where(image-gallery[data-is-overlay-open]) button:focus {
-	--_button-border-color: var(--c-white);
-}
-
-:where(image-gallery) button {
+:where(image-gallery:not([data-is-overlay-open])) button {
 	--_button-text-color: inherit;
 	--_button-background-color: transparent;
 }
@@ -52,6 +44,14 @@ image-gallery:where([data-is-overlay-open]) {
 :where(image-gallery:not([data-is-overlay-open])) button:enabled:hover {
 	--_button-text-color: var(--c-white);
 	--_button-background-color: var(--c-black);
+}
+
+:where(image-gallery:not([data-is-overlay-open])) button:focus {
+	--_button-border-color: var(--c-black);
+}
+
+:where(image-gallery:not([data-is-overlay-open])) button:focus:enabled:hover {
+	--_button-border-color: var(--c-white);
 }
 
 .ig-open-overlay-button {
@@ -102,6 +102,10 @@ image-gallery:where([data-is-overlay-open]) {
 
 .ig-scroll-container:focus {
 	outline-offset: -2px;
+}
+
+:where(image-gallery[data-is-overlay-open]) .ig-scroll-container:focus {
+	outline-color: var(--c-white);
 }
 
 image-gallery-item {

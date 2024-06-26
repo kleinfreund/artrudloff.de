@@ -1,0 +1,8 @@
+:where(toggle-button[data-js='false'])>.tb-button {
+  display: none;
+}
+
+:where(.tb-button[aria-pressed='false']) .tb-close-icon,
+:where(.tb-button[aria-pressed='true']) .tb-open-icon {
+  display: none;
+}
