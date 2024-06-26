@@ -1,4 +1,7 @@
 .button {
+	--text-color: #fff;
+	--background-color: #000;
+
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
@@ -6,8 +9,8 @@
 	height: 64px;
 	border: 2px dashed transparent;
 	border-radius: 50%;
-	color: #fff;
-	background-color: #000;
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 .button:focus {
@@ -16,6 +19,6 @@
 }
 
 .button:enabled:hover {
-	color: #000;
-	background-color: #fff;
+	--text-color: #000;
+	--background-color: #fff;
 }

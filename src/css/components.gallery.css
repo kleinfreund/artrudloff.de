@@ -1,79 +1,91 @@
+:where(image-gallery[data-js-disabled]) button {
+	display: none !important;
+}
+
 image-gallery {
+	--focus-color: #000;
+
+	container-name: image-gallery;
+	container-type: inline-size;
 	position: relative;
-	display: block;
+	display: grid;
+	grid-template-columns: min-content repeat(2, minmax(0, 1fr)) min-content;
+	gap: 0.75rem;
+	align-items: center;
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 image-gallery:where([data-is-overlay-open]) {
+	--text-color: #fff;
+	--background-color: hsl(0 0% 0% / 0.95);
+	--focus-color: #fff;
+
 	position: fixed;
 	z-index: 1;
 	inset: 0;
-	justify-content: center;
-	align-items: stretch;
-	color: #fff;
-	background-color: hsl(0 0% 0% / 0.95);
+	padding: 0 0.75rem;
 }
 
-@media (max-width: 999.98px) {
-	image-gallery:where([data-is-overlay-open]) {
-		display: grid;
-		grid-template-rows: 1fr min-content;
-	}
+:where(image-gallery) .button {
+	--text-color: inherit;
+	--background-color: transparent;
 }
 
-@media (min-width: 1000px) {
-	image-gallery:where([data-is-overlay-open]) {
-		display: flex;
-	}
+:where(image-gallery:not([data-is-overlay-open])) .button:enabled:hover {
+	--text-color: #fff;
+	--background-color: #000;
 }
 
-.gallery-open-overlay-button {
+.ig-open-overlay-button {
 	position: absolute;
-	right: 1.5rem;
-	top: 1.5rem;
-	color: #000;
-	background-color: #fff;
+	right: 0;
+	top: 0;
 }
 
-:where(image-gallery[data-js-disabled]) .gallery-open-overlay-button {
-	display: none;
+:where(image-gallery:not(:hover)) .ig-open-overlay-button:where(:not(:focus)),
+:where(image-gallery[data-is-overlay-open]) .ig-open-overlay-button {
+	/* Use opacity to visually hide the button while allowing it to still be focused by the user. */
+	opacity: 0 !important;
 }
 
-.gallery-open-overlay-button:enabled:hover {
-	color: #fff;
-	background-color: #000;
-}
-
-:where(image-gallery:not(:hover)) .gallery-open-overlay-button,
-:where(image-gallery[data-is-overlay-open]) .gallery-open-overlay-button {
-	display: none;
-}
-
-.gallery-close-overlay-button {
+.ig-close-overlay-button {
 	position: absolute;
 	right: 0.75rem;
 	top: 0.75rem;
 }
 
-:where(image-gallery:not([data-is-overlay-open])) .gallery-close-overlay-button {
-	display: none;
+:where(image-gallery:not([data-is-overlay-open])) .ig-close-overlay-button {
+	display: none !important;
 }
 
-.gallery-scroll-container {
+.ig-scroll-container {
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
+	scroll-behavior: smooth;
 	scroll-snap-type: x mandatory;
 	width: 100%;
+	max-height: 100%;
 	display: flex;
 	align-items: stretch;
 }
 
-.gallery-scroll-container:focus {
-	outline: 1px dashed #000;
-	outline-offset: -2px;
+@container image-gallery (inline-size < 800px) {
+	.ig-scroll-container {
+		grid-column: 1 / -1;
+		grid-row-start: 1;
+	}
 }
 
-:where(image-gallery[data-is-overlay-open]) .gallery-scroll-container:focus {
-	outline-color: #fff;
+@container image-gallery (inline-size >=800px) {
+	.ig-scroll-container {
+		grid-column: 2 / span 2;
+		grid-row-start: 1;
+	}
+}
+
+.ig-scroll-container:focus {
+	outline-offset: -2px;
 }
 
 image-gallery-item {
@@ -85,7 +97,7 @@ image-gallery-item {
 	align-items: center;
 }
 
-.figure {
+.ig-figure {
 	max-height: 100%;
 	margin-bottom: 0;
 	margin-right: 0;
@@ -95,83 +107,48 @@ image-gallery-item {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	color: var(--text-color);
-	background-color: var(--background-color);
 }
 
-.figure>img {
+.ig-figure>img {
 	min-height: 0;
 }
 
-:where(image-gallery:not([data-is-overlay-open]) .figure) img {
+:where(image-gallery:not([data-is-overlay-open]) .ig-figure) img {
 	max-height: 680px;
 }
 
-:where(image-gallery[data-js-disabled]) .gallery-controls {
-	display: none;
+.ig-previous-button>svg {
+	/* Visually center the chevron icon */
+	transform: translateX(-2px);
 }
 
-@media (max-width: 999.98px) {
-	.gallery-controls {
-		margin-top: 0.75rem;
-		display: inline-flex;
-		align-items: center;
-		justify-self: center;
-	}
-
-	:where(image-gallery[data-is-overlay-open]) .gallery-controls {
-		justify-self: center;
-		margin-bottom: 0.75rem;
-	}
-
-	.gallery-controls>*+* {
-		margin-left: 1.5rem;
-	}
+.ig-next-button>svg {
+	/* Visually center the chevron icon */
+	transform: translateX(2px);
 }
 
-@media (min-width: 1000px) {
-	.gallery-controls {
-		pointer-events: none;
-		position: absolute;
-		inset: 0;
+@container image-gallery (inline-size < 800px) {
+	.ig-previous-button {
+		justify-self: flex-end;
+		grid-column: 1 / span 2;
+		grid-row-start: 2;
+	}
+
+	.ig-next-button {
+		justify-self: flex-start;
+		grid-column: 3 / span 2;
+		grid-row-start: 2;
 	}
 }
 
-.gallery-controls__button {
-	color: inherit;
-	background-color: transparent;
-}
-
-:where(image-gallery:not([data-is-overlay-open])) .gallery-controls__button:enabled:hover {
-	color: #fff;
-	background-color: #000;
-}
-
-@media (min-width: 1000px) {
-	.gallery-controls__button {
-		pointer-events: all;
-		position: absolute;
-		top: 50%;
-		transform: translateY(-50%);
+@container image-gallery (inline-size >=800px) {
+	.ig-previous-button {
+		grid-column-start: 1;
+		grid-row-start: 1;
 	}
 
-	:where(image-gallery:not([data-is-overlay-open])) .gallery-controls__prev-button {
-		right: calc(100% + 0.75rem);
+	.ig-next-button {
+		grid-column-start: 4;
+		grid-row-start: 1;
 	}
-
-	:where(image-gallery:not([data-is-overlay-open])) .gallery-controls__next-button {
-		left: calc(100% + 0.75rem);
-	}
-
-	:where(image-gallery[data-is-overlay-open]) .gallery-controls__prev-button {
-		left: 0.75rem;
-	}
-
-	:where(image-gallery[data-is-overlay-open]) .gallery-controls__next-button {
-		right: 0.75rem;
-	}
-}
-
-.gallery-controls__icon {
-	flex-shrink: 0;
 }

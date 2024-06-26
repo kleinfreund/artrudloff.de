@@ -1,4 +1,6 @@
 .site-head {
+	--focus-color: #fff;
+
 	position: relative;
 	padding: 0.125rem 0.75rem;
 	display: flex;

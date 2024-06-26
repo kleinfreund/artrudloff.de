@@ -1,5 +1,5 @@
 <image-gallery data-js-disabled>
-  <button class="gallery-open-overlay-button button" type="button">
+  <button class="ig-open-overlay-button button" type="button">
     <span class="visually-hidden">Gallerie öffnen</span>
 
     <svg
@@ -15,7 +15,7 @@
     </svg>
   </button>
 
-  <button class="gallery-close-overlay-button button" type="button">
+  <button class="ig-close-overlay-button button" type="button">
     <span class="visually-hidden">Schließen</span>
 
     <svg
@@ -32,7 +32,7 @@
   </button>
 
   <div
-    class="gallery-scroll-container"
+    class="ig-scroll-container"
     role="region"
     aria-label="Bilder-Galerie für '{{ title }}'"
     tabindex="0"
@@ -40,7 +40,7 @@
     {% for item in images %}
       {% assign item_index = forloop.index0 %}
       <image-gallery-item>
-        <figure class="figure">
+        <figure class="ig-figure">
           <img
             {% if post_index > 0 or item_index > 0 %}loading="lazy"{% endif %}
             src="{{ item.src }}"
@@ -59,34 +59,30 @@
   </div>
 
   {% if images.length > 1 %}
-    <div class="gallery-controls">
-      <button class="button gallery-controls__button gallery-controls__prev-button" type="button">
-        <span class="visually-hidden">Vorheriges</span>
+    <button class="button ig-controls-button ig-previous-button" type="button">
+      <span class="visually-hidden">Vorheriges</span>
 
-        <svg
-          class="gallery-controls__icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="17"
-          aria-hidden="true"
-        >
-          <path d="M.655 7.513l7.04-7.12a.862.862 0 011.23 0l.82.83c.34.343.34.899.002 1.242l-5.58 5.67 5.58 5.67c.338.344.337.9-.002 1.242l-.82.83a.862.862 0 01-1.23 0l-7.04-7.12a.886.886 0 010-1.244z" fill="currentColor" />
-        </svg>
-      </button>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="17"
+        aria-hidden="true"
+      >
+        <path d="M.655 7.513l7.04-7.12a.862.862 0 011.23 0l.82.83c.34.343.34.899.002 1.242l-5.58 5.67 5.58 5.67c.338.344.337.9-.002 1.242l-.82.83a.862.862 0 01-1.23 0l-7.04-7.12a.886.886 0 010-1.244z" fill="currentColor" />
+      </svg>
+    </button>
 
-      <button class="button gallery-controls__button gallery-controls__next-button" type="button">
-        <span class="visually-hidden">Nächstes</span>
+    <button class="button ig-controls-button ig-next-button" type="button">
+      <span class="visually-hidden">Nächstes</span>
 
-        <svg
-          class="gallery-controls__icon"
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="17"
-          aria-hidden="true"
-        >
-          <path d="M9.345 8.757l-7.04 7.12a.862.862 0 01-1.23 0l-.82-.83a.886.886 0 01-.002-1.242l5.58-5.67-5.58-5.67a.886.886 0 01.002-1.242l.82-.83a.862.862 0 011.23 0l7.04 7.12c.34.344.34.9 0 1.244z" fill="currentColor" />
-        </svg>
-      </button>
-    </div>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="10"
+        height="17"
+        aria-hidden="true"
+      >
+        <path d="M9.345 8.757l-7.04 7.12a.862.862 0 01-1.23 0l-.82-.83a.886.886 0 01-.002-1.242l5.58-5.67-5.58-5.67a.886.886 0 01.002-1.242l.82-.83a.862.862 0 011.23 0l7.04 7.12c.34.344.34.9 0 1.244z" fill="currentColor" />
+      </svg>
+    </button>
   {% endif %}
 </image-gallery>

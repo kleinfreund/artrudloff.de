@@ -16,20 +16,6 @@ class ImageGallery extends HTMLElement {
 	/** @type {HTMLButtonElement | null} */ #previousButton
 	/** @type {HTMLButtonElement | null} */ #nextButton
 
-	/** @type {Record<string, (event: KeyboardEvent) => void>} */ commands = {
-		Escape: () => {
-			if (this.#isOverlayOpen) {
-				this.#closeOverlay()
-			}
-		},
-
-		Enter: () => {
-			if (!this.#isOverlayOpen && this.#scrollContainer === this.ownerDocument.activeElement) {
-				this.#scrollContainer.click()
-			}
-		},
-	}
-
 	get #itemIndex() {
 		return Math.round(this.#scrollContainer.scrollLeft / this.#scrollContainer.clientWidth)
 	}
@@ -43,23 +29,23 @@ class ImageGallery extends HTMLElement {
 
 		this.removeAttribute('data-js-disabled')
 
-		this.#scrollContainer = /** @type {HTMLElement} */ (this.querySelector('.gallery-scroll-container'))
+		this.#scrollContainer = /** @type {HTMLElement} */ (this.querySelector('.ig-scroll-container'))
 		this.#scrollContainer.addEventListener('scroll', this.#updateButtonDisabledState)
 		this.#scrollContainer.addEventListener('scrollend', this.#updateButtonDisabledState)
 		this.#scrollContainer.addEventListener('click', this.#toggleOverlay)
 
-		this.#openOverlayButton = /** @type {HTMLButtonElement} */ (this.querySelector('.gallery-open-overlay-button'))
+		this.#openOverlayButton = /** @type {HTMLButtonElement} */ (this.querySelector('.ig-open-overlay-button'))
 		this.#openOverlayButton.addEventListener('click', this.#toggleOverlay)
 
-		this.#closeOverlayButton = /** @type {HTMLButtonElement} */ (this.querySelector('.gallery-close-overlay-button'))
+		this.#closeOverlayButton = /** @type {HTMLButtonElement} */ (this.querySelector('.ig-close-overlay-button'))
 		this.#closeOverlayButton.addEventListener('click', this.#toggleOverlay)
 
-		this.#previousButton = /** @type {HTMLButtonElement | null} */ (this.querySelector('.gallery-controls__prev-button'))
+		this.#previousButton = /** @type {HTMLButtonElement | null} */ (this.querySelector('.ig-previous-button'))
 		if (this.#previousButton instanceof HTMLButtonElement) {
 			this.#previousButton.addEventListener('click', this.#goToPreviousItem)
 		}
 
-		this.#nextButton = /** @type {HTMLButtonElement | null} */ (this.querySelector('.gallery-controls__next-button'))
+		this.#nextButton = /** @type {HTMLButtonElement | null} */ (this.querySelector('.ig-next-button'))
 		if (this.#nextButton instanceof HTMLButtonElement) {
 			this.#nextButton.addEventListener('click', this.#goToNextItem)
 		}
@@ -128,21 +114,15 @@ class ImageGallery extends HTMLElement {
 	#closeOverlay() {
 		this.removeAttribute('data-is-overlay-open')
 		this.ownerDocument.body.style.removeProperty('overflow')
-
-		// Ensures that triggering the close overlay button doesn't also trigger the scroll container's click event listener.
-		window.setTimeout(() => {
-			this.#scrollContainer.focus()
-		}, 0)
+		this.#openOverlayButton.focus()
 	}
 
 	/**
 	 * @param {KeyboardEvent} event
 	 */
-	triggerCommand(event) {
-		const command = this.commands[event.code]
-
-		if (typeof command === 'function') {
-			command(event)
+	handleKeydownEvent(event) {
+		if (event.code === 'Escape' && this.#isOverlayOpen) {
+			this.#closeOverlay()
 		}
 	}
 }
@@ -178,7 +158,7 @@ document.addEventListener('keydown', function (event) {
 		const component = event.target.closest('image-gallery')
 
 		if (component instanceof ImageGallery) {
-			component.triggerCommand(event)
+			component.handleKeydownEvent(event)
 		}
 	}
 })
