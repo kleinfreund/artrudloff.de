@@ -9,7 +9,7 @@ layout: _includes/base.liquid
 
 			<h2>{{ post.data.title }}</h2>
 
-			<image-gallery class="gallery">
+			<image-gallery data-js-disabled>
 				<button class="gallery-open-overlay-button button" type="button">
 					<span class="visually-hidden">Gallerie öffnen</span>
 
@@ -50,10 +50,9 @@ layout: _includes/base.liquid
 				>
 					{% for image in post.data.images %}
 						{% assign image_index = forloop.index0 %}
-						<div class="gallery-scroll-container__item">
-							<figure class="gallery-item">
+						<image-gallery-item>
+							<figure class="figure">
 								<img
-									class="gallery-item__image"
 									{% if post_index > 0 or image_index > 0 %}loading="lazy"{% endif %}
 									src="{{ image.src }}"
 									{% if image.src_high_res %}data-high-res-src="{{ image.src_high_res }}"{% endif %}
@@ -66,7 +65,7 @@ layout: _includes/base.liquid
 									</figcaption>
 								{% endif %}
 							</figure>
-						</div>
+						</image-gallery-item>
 					{% endfor %}
 				</div>
 

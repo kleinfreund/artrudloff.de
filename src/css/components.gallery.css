@@ -1,9 +1,9 @@
-.gallery {
+image-gallery {
 	position: relative;
 	display: block;
 }
 
-.gallery--is-overlay {
+image-gallery:where([data-is-overlay-open]) {
 	position: fixed;
 	z-index: 1;
 	inset: 0;
@@ -14,14 +14,14 @@
 }
 
 @media (max-width: 999.98px) {
-	.gallery--is-overlay {
+	image-gallery:where([data-is-overlay-open]) {
 		display: grid;
 		grid-template-rows: 1fr min-content;
 	}
 }
 
 @media (min-width: 1000px) {
-	.gallery--is-overlay {
+	image-gallery:where([data-is-overlay-open]) {
 		display: flex;
 	}
 }
@@ -34,7 +34,7 @@
 	background-color: #fff;
 }
 
-:root.js-disabled .gallery-open-overlay-button {
+:where(image-gallery[data-js-disabled]) .gallery-open-overlay-button {
 	display: none;
 }
 
@@ -43,8 +43,8 @@
 	background-color: #000;
 }
 
-.gallery:not(:hover) .gallery-open-overlay-button,
-.gallery.gallery--is-overlay .gallery-open-overlay-button {
+:where(image-gallery:not(:hover)) .gallery-open-overlay-button,
+:where(image-gallery[data-is-overlay-open]) .gallery-open-overlay-button {
 	display: none;
 }
 
@@ -54,12 +54,13 @@
 	top: 0.75rem;
 }
 
-.gallery:not(.gallery--is-overlay) .gallery-close-overlay-button {
+:where(image-gallery:not([data-is-overlay-open])) .gallery-close-overlay-button {
 	display: none;
 }
 
 .gallery-scroll-container {
 	overflow-x: auto;
+	overscroll-behavior-x: contain;
 	scroll-snap-type: x mandatory;
 	width: 100%;
 	display: flex;
@@ -71,11 +72,11 @@
 	outline-offset: -2px;
 }
 
-.gallery--is-overlay .gallery-scroll-container:focus {
+:where(image-gallery[data-is-overlay-open]) .gallery-scroll-container:focus {
 	outline-color: #fff;
 }
 
-.gallery-scroll-container__item {
+image-gallery-item {
 	scroll-snap-align: center;
 	flex-basis: 100%;
 	flex-shrink: 0;
@@ -84,7 +85,7 @@
 	align-items: center;
 }
 
-.gallery-item {
+.figure {
 	max-height: 100%;
 	margin-bottom: 0;
 	margin-right: 0;
@@ -98,15 +99,15 @@
 	background-color: var(--background-color);
 }
 
-.gallery-item__image {
+.figure>img {
 	min-height: 0;
 }
 
-.gallery:not(.gallery--is-overlay) .gallery-item__image {
+:where(image-gallery:not([data-is-overlay-open]) .figure) img {
 	max-height: 680px;
 }
 
-:root.js-disabled .gallery-controls {
+:where(image-gallery[data-js-disabled]) .gallery-controls {
 	display: none;
 }
 
@@ -118,12 +119,12 @@
 		justify-self: center;
 	}
 
-	.gallery--is-overlay .gallery-controls {
+	:where(image-gallery[data-is-overlay-open]) .gallery-controls {
 		justify-self: center;
 		margin-bottom: 0.75rem;
 	}
 
-	.gallery-controls> :not(:first-child) {
+	.gallery-controls>*+* {
 		margin-left: 1.5rem;
 	}
 }
@@ -141,7 +142,7 @@
 	background-color: transparent;
 }
 
-.gallery:not(.gallery--is-overlay) .gallery-controls__button:enabled:hover {
+:where(image-gallery:not([data-is-overlay-open])) .gallery-controls__button:enabled:hover {
 	color: #fff;
 	background-color: #000;
 }
@@ -154,19 +155,19 @@
 		transform: translateY(-50%);
 	}
 
-	.gallery:not(.gallery--is-overlay) .gallery-controls__prev-button {
+	:where(image-gallery:not([data-is-overlay-open])) .gallery-controls__prev-button {
 		right: calc(100% + 0.75rem);
 	}
 
-	.gallery:not(.gallery--is-overlay) .gallery-controls__next-button {
+	:where(image-gallery:not([data-is-overlay-open])) .gallery-controls__next-button {
 		left: calc(100% + 0.75rem);
 	}
 
-	.gallery--is-overlay .gallery-controls__prev-button {
+	:where(image-gallery[data-is-overlay-open]) .gallery-controls__prev-button {
 		left: 0.75rem;
 	}
 
-	.gallery--is-overlay .gallery-controls__next-button {
+	:where(image-gallery[data-is-overlay-open]) .gallery-controls__next-button {
 		right: 0.75rem;
 	}
 }
