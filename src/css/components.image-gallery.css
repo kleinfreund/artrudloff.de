@@ -62,7 +62,6 @@ image-gallery:where([data-is-overlay-open]) {
 .ig-scroll-container {
 	overflow-x: auto;
 	overscroll-behavior-x: contain;
-	scroll-behavior: smooth;
 	scroll-snap-type: x mandatory;
 	width: 100%;
 	max-height: 100%;

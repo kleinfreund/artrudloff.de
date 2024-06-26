@@ -114,7 +114,11 @@ class ImageGallery extends HTMLElement {
 	#closeOverlay() {
 		this.removeAttribute('data-is-overlay-open')
 		this.ownerDocument.body.style.removeProperty('overflow')
-		this.#openOverlayButton.focus()
+
+		// Ensures that triggering the close overlay button doesn't also trigger the scroll container's click event listener.
+		window.setTimeout(() => {
+			this.#scrollContainer.focus()
+		}, 0)
 	}
 
 	/**
