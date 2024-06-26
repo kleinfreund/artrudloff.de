@@ -77,14 +77,14 @@
 	{% if eleventy.isProduction %}
 		<script defer>
 			{%- capture script_content -%}
-				{% include 'js/gallery.js' %}
+				{% include 'js/ImageGallery.js' %}
 				{% include 'js/navigation.js' %}
 			{%- endcapture -%}
 
 			{{ script_content | minify_js }}
 		</script>
 	{% else %}
-		<script src="{{ '/js/gallery.js' | url }}" defer></script>
+		<script src="{{ '/js/ImageGallery.js' | url }}" defer></script>
 		<script src="{{ '/js/navigation.js' | url }}" defer></script>
 	{% endif %}
 
