@@ -14,7 +14,7 @@
 		"clean-css": "^5.3.3",
 		"cross-env": "^7.0.3",
 		"html-minifier": "^4.0.0",
-		"rimraf": "^5.0.7",
-		"terser": "^5.31.1"
+		"rimraf": "^5.0.10",
+		"terser": "^5.31.3"
 	}
 }
