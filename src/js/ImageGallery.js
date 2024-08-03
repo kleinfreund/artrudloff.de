@@ -54,25 +54,26 @@ class ImageGallery extends HTMLElement {
 	}
 
 	#goToPreviousItem = () => {
-		this.#goToItem(this.#itemIndex - 1)
+		this.#goToItem(-1)
 	}
 
 	#goToNextItem = () => {
-		this.#goToItem(this.#itemIndex + 1)
+		this.#goToItem(1)
 	}
 
 	/**
-	 * @param {number} itemIndex
+	 * @param {number} direction
 	 */
-	#goToItem = (itemIndex) => {
-		this.#scrollContainer.scrollLeft = itemIndex * this.#scrollContainer.clientWidth
+	#goToItem = (direction) => {
+		this.#scrollContainer.scrollLeft = (this.#itemIndex + direction) * this.#scrollContainer.clientWidth
 		this.#updateButtonDisabledState()
 	}
 
 	#updateButtonDisabledState = () => {
 		if (this.#previousButton instanceof HTMLButtonElement && this.#nextButton instanceof HTMLButtonElement) {
-			this.#previousButton.disabled = this.#itemIndex <= 0
-			this.#nextButton.disabled = this.#itemIndex >= this.#scrollContainer.children.length - 1
+			const { clientWidth, scrollLeft, scrollWidth } = this.#scrollContainer
+			this.#previousButton.disabled = scrollLeft === 0
+			this.#nextButton.disabled = scrollLeft + clientWidth === scrollWidth
 		}
 	}
 
