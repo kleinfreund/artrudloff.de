@@ -10,7 +10,7 @@ layout: _includes/base.liquid
 
 			{% include '_includes/image-gallery', images: post.data.images, title: post.data.title, post_index: post_index %}
 		{% else %}
-			{{ post.templateContent }}
+			{{ post.content }}
 		{% endif %}
 	</article>
 {% endfor %}

@@ -1,8 +1,8 @@
-const { minify } = require('terser')
-const CleanCSS = require('clean-css')
-const fs = require('fs')
-const htmlMinifier = require('html-minifier')
-const path = require('path')
+import { minify } from 'terser'
+import CleanCSS from 'clean-css'
+import fs from 'fs'
+import htmlMinifier from 'html-minifier'
+import path from 'path'
 
 /**
  * https://github.com/kangax/html-minifier#options-quick-reference
@@ -15,7 +15,7 @@ const htmlMinifierOptions = {
 	collapseWhitespace: true
 }
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
 	eleventyConfig.setLiquidOptions({
 		dynamicPartials: true,
 		strict_filters: true
@@ -43,12 +43,14 @@ module.exports = function (eleventyConfig) {
 
 	if (process.env.NODE_ENV !== 'production') {
 		// Log and print template data
-		eleventyConfig.addFilter('log', function (value) {
+		eleventyConfig.addAsyncFilter('log', async function (value) {
 			try {
 				console.log(JSON.stringify(value, null, 2))
 			} catch { }
 
-			return require('util').inspect(value)
+			const { inspect } = await import('node:util')
+
+			return inspect(value)
 		})
 	}
 
@@ -68,11 +70,11 @@ module.exports = function (eleventyConfig) {
  * @returns {string} the concatenated contents of the CSS files found by resolving `@import` rules in the CSS file at `cssPath`.
  */
 function resolveCssImports(cssPath) {
-	return fs.readFileSync(path.resolve(__dirname, path.join('src', cssPath)), 'utf8')
+	return fs.readFileSync(path.resolve(path.join('src', cssPath)), 'utf8')
 		.split(/\r?\n/)
 		.filter((line) => line.startsWith('@import'))
 		.map((rule) => rule.replace(/@import ['"]/, '').replace(/['"];/, ''))
-		.map((importPath) => fs.readFileSync(path.resolve(__dirname, path.join('src', importPath)), 'utf8'))
+		.map((importPath) => fs.readFileSync(path.resolve(path.join('src', importPath)), 'utf8'))
 		.join('')
 }
 
