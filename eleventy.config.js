@@ -34,7 +34,7 @@ export default function (eleventyConfig) {
 		.addPassthroughCopy('src/.htaccess')
 
 	// Filter for compressing CSS/JS
-	eleventyConfig.addFilter('resolve_css_imports', resolveCssImports)
+	eleventyConfig.addFilter('inline_css_imports', inlineCssImports)
 	eleventyConfig.addFilter('minify_css', minifyCss)
 	eleventyConfig.addFilter('minify_js', minifyJs)
 
@@ -67,15 +67,27 @@ export default function (eleventyConfig) {
 
 /**
  * @param {string} cssPath
- * @returns {string} the concatenated contents of the CSS files found by resolving `@import` rules in the CSS file at `cssPath`.
+ * @returns {string} the concatenated contents of the CSS files found by inlining `@import` rules in the CSS file at `cssPath`.
  */
-function resolveCssImports(cssPath) {
-	return readFileSync(resolve(join('src', cssPath)), 'utf8')
-		.split(/\r?\n/)
-		.filter((line) => line.startsWith('@import'))
-		.map((rule) => rule.replace(/@import ['"]/, '').replace(/['"];/, ''))
-		.map((importPath) => readFileSync(resolve(join('src', importPath)), 'utf8'))
-		.join('')
+function inlineCssImports(cssPath) {
+	return readFileContent(cssPath)
+		.replace(/@import\s+(["'])(.*)\1\s*(?:layer\((.*)\))?;/g, (_match, _p1, path, layer) => {
+			if (layer) {
+				return `@layer ${layer} {
+          ${readFileContent(path)}
+        }`
+			} else {
+				return readFileContent(path)
+			}
+		})
+}
+
+/**
+ * @param {string} path
+ * @returns {string}
+ */
+function readFileContent(path) {
+	return readFileSync(resolve(join('src', path)), 'utf8')
 }
 
 /**

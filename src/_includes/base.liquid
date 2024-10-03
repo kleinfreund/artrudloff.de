@@ -10,7 +10,7 @@
 
 	{% if eleventy.isProduction %}
 		<style>
-			{{ 'css/artrudloff.css' | resolve_css_imports | minify_css }}
+			{{ 'css/artrudloff.css' | inline_css_imports | minify_css }}
 		</style>
 	{% else %}
 		<link rel="stylesheet" href="{{ '/css/artrudloff.css' | url }}">
