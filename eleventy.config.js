@@ -1,3 +1,4 @@
+import { inspect } from 'node:util'
 import { minify } from 'terser'
 import CleanCSS from 'clean-css'
 import fs from 'fs'
@@ -47,8 +48,6 @@ export default function (eleventyConfig) {
 			try {
 				console.log(JSON.stringify(value, null, 2))
 			} catch { }
-
-			const { inspect } = await import('node:util')
 
 			return inspect(value)
 		})
