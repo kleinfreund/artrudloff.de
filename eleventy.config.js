@@ -76,8 +76,8 @@ function inlineCssImports(cssPath) {
 		.replace(/@import\s+(["'])(.*)\1\s*(?:layer\((.*)\))?;/g, (_match, _p1, path, layer) => {
 			if (layer) {
 				return `@layer ${layer} {
-          ${readFileContent(path)}
-        }`
+					${readFileContent(path)}
+				}`
 			} else {
 				return readFileContent(path)
 			}
