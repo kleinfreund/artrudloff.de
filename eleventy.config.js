@@ -14,13 +14,13 @@ import htmlMinifier from 'html-minifier'
 const htmlMinifierOptions = {
 	useShortDoctype: true,
 	removeComments: true,
-	collapseWhitespace: true
+	collapseWhitespace: true,
 }
 
 export default function (eleventyConfig) {
 	eleventyConfig.setLiquidOptions({
 		dynamicPartials: true,
-		strict_filters: true
+		strict_filters: true,
 	})
 
 	eleventyConfig.setDataDeepMerge(true)
@@ -59,9 +59,9 @@ export default function (eleventyConfig) {
 			input: 'src',
 			// Make the project directory the includes directory. This allows me to include files from
 			// across the project instead of just a dedicated includes directory.
-			includes: ''
+			includes: '',
 		},
-		templateFormats: ['md', 'liquid', 'html']
+		templateFormats: ['md', 'liquid', 'html'],
 	}
 }
 
