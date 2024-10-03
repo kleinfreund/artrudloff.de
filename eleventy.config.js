@@ -1,9 +1,10 @@
+import { readFileSync } from 'node:fs'
+import { join, resolve } from 'node:path'
 import { inspect } from 'node:util'
+
 import { minify } from 'terser'
 import CleanCSS from 'clean-css'
-import fs from 'fs'
 import htmlMinifier from 'html-minifier'
-import path from 'path'
 
 /**
  * https://github.com/kangax/html-minifier#options-quick-reference
@@ -69,11 +70,11 @@ export default function (eleventyConfig) {
  * @returns {string} the concatenated contents of the CSS files found by resolving `@import` rules in the CSS file at `cssPath`.
  */
 function resolveCssImports(cssPath) {
-	return fs.readFileSync(path.resolve(path.join('src', cssPath)), 'utf8')
+	return readFileSync(resolve(join('src', cssPath)), 'utf8')
 		.split(/\r?\n/)
 		.filter((line) => line.startsWith('@import'))
 		.map((rule) => rule.replace(/@import ['"]/, '').replace(/['"];/, ''))
-		.map((importPath) => fs.readFileSync(path.resolve(path.join('src', importPath)), 'utf8'))
+		.map((importPath) => readFileSync(resolve(join('src', importPath)), 'utf8'))
 		.join('')
 }
 
