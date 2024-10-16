@@ -8,7 +8,7 @@
 
 	<meta name="description" content="{% if description %}{{ description }}{% else %}{{ metadata.description }}{% endif %}">
 
-	{% if eleventy.isProduction %}
+	{% if env.mode == 'production' %}
 		<style>
 			{{ 'css/artrudloff.css' | inline_css_imports | minify_css }}
 		</style>
@@ -47,7 +47,7 @@
 		{{ content }}
 	</main>
 
-	{% if eleventy.isProduction %}
+	{% if env.mode == 'production' %}
 		<script defer>
 			{%- capture script_content -%}
 				{% include 'js/ImageGallery.js' %}
